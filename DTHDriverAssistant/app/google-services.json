@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "21942197109",
+    "project_id": "dth-driver-assistant",
+    "storage_bucket": "dth-driver-assistant.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:21942197109:android:a65923f619eb3643fb513c",
+        "android_client_info": {
+          "package_name": "com.example.dthdriverassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "21942197109-gr3aqcvrervudtnrut06htvco7615u88.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8PcOplXtpSUJ517lwoPS7rs7CmQSh1y4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "21942197109-gr3aqcvrervudtnrut06htvco7615u88.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
