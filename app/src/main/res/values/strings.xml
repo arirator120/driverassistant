@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">Main</string>
+    <string name="lichsu">Lịch sử</string>
+    <string name="nhacnho">Nhắc nhở</string>
+    <string name="cuuho">Cứu hộ</string>
+    <string name="hotro">Hỗ trợ</string>
+    <string name="xuatfile">Xuất file</string>
+    <string name="driverassistant">Lichsu</string>
+    <string name="tenCV">Tên công việc</string>
+    <string name="ten">Đổ xăng, Thay nhớt, Sửa linh kiện</string>
+    <string name="date">Ngày</string>
+    <string name="dd_mm_yy">dd/mm/yy</string>
+    <string name="place">Địa chỉ</string>
+    <string name="thanhtien">Thành tiền</string>
+    <string name="vnd">vnd</string>
+    <string name="tencv">TênCV</string>
+    <string name="add">Add</string>
+    <string name="deleteall">Delete All</string>
+    <string name="error">Bạn chưa nhập tên</string>
+
+</resources>

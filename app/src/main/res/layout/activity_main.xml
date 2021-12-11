@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="@drawable/canhtroi"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="100dp"
+        android:text="DRIVER ASSISTANT"
+        android:textColor="#F6F8FA"
+        android:textColorHint="@color/purple_500"
+        android:textSize="35dp"
+        android:textStyle="bold" />
+    <Button
+        android:id="@+id/btn_lichsu"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/lichsu"
+        app:backgroundTint="#197F88" />
+
+    <Button
+        android:id="@+id/btn_nhacnho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/nhacnho"
+        app:backgroundTint="#D84315" />
+
+    <Button
+        android:id="@+id/btn_timvitri"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tìm vị trí"
+        app:backgroundTint="#F9A825" />
+
+    <Button
+        android:id="@+id/btn_keugoicuuho"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Kêu gọi cứu hộ"
+        app:backgroundTint="#6A1B9A" />
+
+    <Button
+        android:id="@+id/btn_xuatfile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/xuatfile"
+        app:backgroundTint="#3B7711" />
+
+</LinearLayout>
