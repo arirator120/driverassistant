@@ -13,7 +13,8 @@ public class HelpActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_help);
+        //setContentView(R.layout.activity_help);
+        setContentView(R.layout.fragment_help);
         init();
         imgCallHCM.setOnClickListener(new View.OnClickListener() {
             @Override
