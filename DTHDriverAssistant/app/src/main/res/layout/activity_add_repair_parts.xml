@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:orientation="vertical"
+tools:context=".activity.add.AddRepairPartsActivity">
+<androidx.appcompat.widget.Toolbar
+    android:id="@+id/my_toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="?attr/actionBarSize"
+    android:background="?attr/colorPrimary"
+    android:elevation="4dp"
+    android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light"/>
+
+<TableLayout
+    android:layout_width="match_parent"
+    android:layout_height="0dp"
+    android:layout_weight="1"
+    android:padding="10dp"
+    >
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_height="40dp"
+            android:layout_width="0dp"
+            android:background="@drawable/shape_edit"
+            android:layout_marginLeft="5dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spVehicles"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:background="@android:color/transparent"
+                tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+
+                />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_baseline_arrow_drop_down" />
+
+        </RelativeLayout>
+
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+
+        <EditText
+            android:id="@+id/etCalFilled"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:hint="Chọn ngày"
+            android:minHeight="48dp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:clickable="true"
+            android:inputType="date"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+
+        <EditText
+            android:id="@+id/etTimeFilled"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:hint="Chọn giờ"
+            android:minHeight="48dp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck"
+            android:clickable="true"
+            android:inputType="time"
+            android:ems="10"
+            />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+
+        <EditText
+            android:id="@+id/etNamePart"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:hint="Tên linh kiện"
+            android:minHeight="48dp"
+            android:textStyle="bold"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+
+        <EditText
+            android:id="@+id/etAmount"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:hint="Số lượng"
+            android:minHeight="48dp"
+            android:textStyle="bold"
+            android:inputType="numberDecimal"
+            tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck" />
+    </TableRow>
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_edit"
+            android:hint="Tiền linh kiện"
+            android:inputType="numberDecimal"
+            android:maxLength="9"
+            android:minHeight="48dp"
+            android:textStyle="bold"
+            tools:ignore="TouchTargetSizeCheck" />
+    </TableRow>
+
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+        <ImageView
+            android:background="@drawable/circle_avatar"
+            android:layout_height="40dp"
+            android:layout_width="40dp"
+            android:src="@drawable/ic_calendar"
+            />
+        <EditText
+            android:layout_marginLeft="5dp"
+            android:id="@+id/etDecs"
+            android:ems="10"
+            android:gravity="left|top"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="1"
+            android:minHeight="48dp"
+            android:hint="Ghi chú"
+            android:textStyle="bold"
+            android:inputType="textMultiLine"
+            android:textSize="15sp"
+            android:background="@drawable/shape_edit"
+            />
+    </TableRow>
+
+</TableLayout>
+<Button
+    android:id="@+id/btnSave"
+    android:layout_height="wrap_content"
+    android:layout_width="wrap_content"
+    android:text="Save"
+    android:layout_marginBottom="100dp"
+    android:layout_gravity="center"
+    />
+
+</LinearLayout>

@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "659878047880",
+    "firebase_url": "https://dth-driver-assistant-project-default-rtdb.firebaseio.com",
+    "project_id": "dth-driver-assistant-project",
+    "storage_bucket": "dth-driver-assistant-project.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659878047880:android:f211cf96f9247d826e6f3d",
+        "android_client_info": {
+          "package_name": "com.example.dthdriverassistant"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659878047880-3sfq5mmluaf732atf91g5sio6rdddasp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dthdriverassistant",
+            "certificate_hash": "eec4b785e59a0f6556148f04ce6889167fbc58fe"
+          }
+        },
+        {
+          "client_id": "659878047880-1ppsfrsgdo0tfru9qf951ba0ejfs1e86.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDU2Tyr3Rk6p9rECG8IazSS6HaSQT9H_Gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659878047880-1ppsfrsgdo0tfru9qf951ba0ejfs1e86.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

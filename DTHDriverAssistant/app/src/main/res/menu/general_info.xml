@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/about_us"
+        android:icon="@drawable/ic_baseline_groups"
+        android:title="About us" />
+    <item
+        android:id="@+id/info"
+        android:icon="@drawable/ic_baseline_info"
+        android:title="DTH driver" />
+    <item
+        android:id="@+id/question"
+        android:icon="@drawable/ic_question"
+        android:title="Trợ giúp" />
+</menu>

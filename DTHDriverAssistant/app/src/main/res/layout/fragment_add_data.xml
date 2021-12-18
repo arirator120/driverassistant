@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context=".fragment.AddDataFragment"
+    android:background="#49A5EC">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+
+        >
+
+        <TableLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            >
+            <TableRow>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imgBtnPetrol"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_avatar"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_petrol"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đổ xăng"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#FCD831"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imgBtnOil"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_avatar"
+                        android:backgroundTint="#757575"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_oil"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thay nhớt"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#DEC1C1"
+                        />
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:paddingTop="20dp"
+                >
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imgBtnParts"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_avatar"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_repair_parts_bg"
+
+                        tools:ignore="SpeakableTextPresentCheck" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Thay linh kiện"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#BC2121"
+                        />
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    >
+
+                    <ImageButton
+                        android:id="@+id/imgBtnReminder"
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/circle_avatar"
+                        android:backgroundTint="#252525"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/icon_clock"
+                        tools:ignore="SpeakableTextPresentCheck" />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Đặt lời nhắc"
+                        android:layout_gravity="center"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        android:textColor="#111111"
+                        />
+                </LinearLayout>
+            </TableRow>
+
+
+
+        </TableLayout>
+
+
+    </LinearLayout>
+
+
+</FrameLayout>

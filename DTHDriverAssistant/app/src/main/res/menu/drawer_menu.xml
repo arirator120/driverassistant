@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view"
+
+    >
+    <group android:checkableBehavior="single"
+        android:id="@+id/drawer_group"
+        >
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Trang chủ"
+            android:checked="true"
+            />
+        <item
+            android:id="@+id/nav_calendar"
+            android:icon="@drawable/ic_calendar"
+            android:title="Lịch"
+            />
+        <item
+            android:id="@+id/nav_reminder"
+            android:icon="@drawable/ic_baseline_alarm_24"
+            android:title="Lời nhắc"
+            />
+    <item android:title="Hỗ trợ">
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_add"
+                    android:icon="@drawable/ic_add"
+                    android:title="Thêm dữ liệu"
+                    />
+
+                <item
+                    android:id="@+id/find"
+                    android:icon="@drawable/ic_baseline_location"
+                    android:title="Tìm vị trí" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Lịch sử"
+        android:id="@+id/drawer_history"
+        >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/nav_his_fuel"
+                    android:icon="@drawable/petrolicon"
+                    android:title="Đổ xăng" />
+                <item
+                    android:id="@+id/nav_his_ch_oil"
+                    android:icon="@drawable/oilicon"
+                    android:title="Thay nhớt" />
+                <item
+                    android:id="@+id/nav_his_re_parts"
+                    android:icon="@drawable/ic_repair"
+                    android:title="Thay linh kiện" />
+            </group>
+        </menu>
+    </item>
+
+    <item android:title="Khác"
+        android:id="@+id/drawer_other"
+        >
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/setting"
+                    android:icon="@drawable/ic_baseline_settings"
+                    android:title="Cài đặt" />
+                <item
+                    android:id="@+id/signOut"
+                    android:icon="@drawable/ic_logout"
+                    android:title="Đăng xuất" />
+            </group>
+        </menu>
+    </item>
+
+    </group>
+
+
+
+</menu>
