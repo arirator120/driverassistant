@@ -7,6 +7,7 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -18,7 +19,6 @@ import android.widget.Toast;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.HomeFragment;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.type;
 import com.example.dthdriverassistant.model.vehicle;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -36,11 +36,12 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class AddVehicleActivity extends AppCompatActivity {
 
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference dbReference;
+//    DatabaseReference dbReference;
     GoogleSignInClient mGoogleSignInClient;
 
     Button btnSave;
@@ -154,7 +155,7 @@ public class AddVehicleActivity extends AppCompatActivity {
 
 
     public void inItMyType(){
-        dbReference = mDatabase.getReference("Types");
+        DatabaseReference dbReference = mDatabase.getReference("Types");
         lstType = new ArrayList<>();
         dbReference.addValueEventListener(new ValueEventListener() {
               @Override
@@ -229,7 +230,7 @@ public class AddVehicleActivity extends AppCompatActivity {
         v.setDesc(etDecs.getText().toString());
         v.setIdUser(idUser);
 
-        dbReference = mDatabase.getReference("UsersVehicle");
+        DatabaseReference dbReference = mDatabase.getReference("UsersVehicle");
 
         if(flag == false){
             //add
@@ -247,8 +248,129 @@ public class AddVehicleActivity extends AppCompatActivity {
             Toast.makeText(AddVehicleActivity.this,"Cập nhật hoàn tất!!",Toast.LENGTH_SHORT).show();
         }
 
+//        DatabaseReference dbReference1 = mDatabase.getReference("ChangeOil").child(v.getId()).child("vehicle").child("name");
+//        if(dbReference1 != null){
+//            dbReference1.setValue();
+//        }
+        syncRefuel(v);
+        syncRepairParts(v);
+        syncChangeOil(v);
 
     }
+
+    public void syncRefuel(vehicle v){
+        //thay đổi ls đổ xăng
+        DatabaseReference dbReference = mDatabase.getReference("Refuel"); //phải tạo lại dbReference
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
+//                        Log.d("mess", dbReference1.child("id").getKey());
+                        //cần kiểm tra id Vehicle để nhận biết vì nó là khóa chính
+                        dbReference1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()) {
+                                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                                    String id = map.get("id").toString();
+//                                    Log.d("mess",map.get("id") + "");
+                                    if(id.equals(v.getId()))
+                                        dbReference1.setValue(v);
+
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+                    }
+                    adapter_type.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
+    }
+
+
+    public void syncChangeOil(vehicle v){
+        //thay đổi ls thay nhớt
+        DatabaseReference dbReference = mDatabase.getReference("ChangeOil"); //phải tạo lại dbReference
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                        Log.d("mess", dataSnapshot.getKey().toString());
+                        DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
+                        dbReference1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()) {
+                                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                                    String id = map.get("id").toString();
+//                                    Log.d("mess",map.get("id") + "");
+                                    if(id.equals(v.getId()))
+                                        dbReference1.setValue(v);
+
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+                    }
+
+                    adapter_type.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+    public void syncRepairParts(vehicle v){
+        //thay đổi ls thay lk
+        DatabaseReference dbReference = mDatabase.getReference("RepairParts");
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+//                        Log.d("mess", dataSnapshot.getKey().toString());
+                        DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
+                        dbReference1.addValueEventListener(new ValueEventListener() {
+                            @Override
+                            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                                if (snapshot.exists()) {
+                                    Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
+                                    String id = map.get("id").toString();
+                                    if(id.equals(v.getId()))
+                                        dbReference1.setValue(v);
+                                }
+                            }
+                            @Override
+                            public void onCancelled(@NonNull DatabaseError error) {
+                            }
+                        });
+                    }
+                    adapter_type.notifyDataSetChanged();
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
+    }
+
+
 
     //ktra có lỗi hay hk
     private String errorMsg(){
