@@ -27,6 +27,7 @@
         android:text="Phan Quang Thái"
         />
     <Button
+        android:id="@+id/EditInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Chỉnh sửa"/>

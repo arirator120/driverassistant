@@ -16,10 +16,12 @@
         android:textStyle="bold"
         android:text="Thông tin khách hàng"
         android:textSize="22sp" />
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:layout_weight="2"
         android:orientation="horizontal">
 
         <ImageView
@@ -27,12 +29,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            tools:srcCompat="@tools:sample/avatars" />
+            android:src="@drawable/ic_ava" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
@@ -53,10 +57,12 @@
             android:layout_weight="2.2"
             android:hint="Tên" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_margin="10dp"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
         <TextView
@@ -77,19 +83,22 @@
             android:layout_weight="2.2"
             android:hint="Phone" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
+        android:layout_height="0dp"
         android:layout_marginTop="20dp"
+        android:layout_weight="4"
+        android:gravity="center_horizontal"
         android:padding="5dp">
+
         <Button
             android:id="@+id/btnEditSave"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="30dp"
             android:text="Save"
-            app:backgroundTint="#34B539"
-            android:layout_marginRight="30dp"/>
+            app:backgroundTint="#34B539" />
 
         <Button
             android:id="@+id/btnEditClose"

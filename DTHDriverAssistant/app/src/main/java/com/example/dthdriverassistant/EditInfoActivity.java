@@ -24,7 +24,7 @@ public class EditInfoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
         init();
-        getData();
+        //getData();
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -46,13 +46,13 @@ public class EditInfoActivity extends AppCompatActivity {
         btnEditClose= findViewById(R.id.btnEditClose);
     }
 
-    public void getData(){
-        Bundle bundle= getIntent().getExtras();
-        u = (user) bundle.get("Users");
-        etEditName.setText(u.getName());
-        //etEditPhone.setText(u.get);
-
-    }
+//    public void getData(){
+//        Bundle bundle= getIntent().getExtras();
+//        u = (user) bundle.get("Users");
+//        etEditName.setText(u.getName());
+//        //etEditPhone.setText(u.get);
+//
+//    }
     public void setData(user u){
         u.setName(etEditName.getText().toString());
         myRef = mDatabase.getReference("Users");

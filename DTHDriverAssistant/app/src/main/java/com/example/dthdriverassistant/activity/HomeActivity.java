@@ -8,14 +8,17 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.FragmentTransaction;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Button;
 
 import android.widget.Toast;
 
+import com.example.dthdriverassistant.EditInfoActivity;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.AddDataFragment;
 import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
@@ -39,7 +42,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeActivity extends AppCompatActivity{
 //    ImageView avatarUser;
 //    TextView nameUser, emailUser, idUser;
-    Button signOut;
+    Button signOut, EditInfo;
     GoogleSignInClient mGoogleSignInClient;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -97,7 +100,6 @@ public class HomeActivity extends AppCompatActivity{
 
         }
 
-
     }
 
     @Override
@@ -116,6 +118,7 @@ public class HomeActivity extends AppCompatActivity{
 //        nameUser = findViewById(R.id.nameUser);
 //        emailUser = findViewById(R.id.emailUser);
 //        idUser = findViewById(R.id.idUser);
+        EditInfo= findViewById(R.id.EditInfo);
 
         drawer = findViewById(R.id.drawer_layout);
         signOut = findViewById(R.id.signOut);
@@ -180,6 +183,11 @@ public class HomeActivity extends AppCompatActivity{
 
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.EditInfo:
+                Intent i = new Intent(this, EditInfoActivity.class);
+                startActivity(i);
+                break;
+
             case R.id.nav_home:
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
@@ -210,6 +218,8 @@ public class HomeActivity extends AppCompatActivity{
                 finish();
                 signOut();
                 break;
+
+
         }
 
         item.setChecked(true);
