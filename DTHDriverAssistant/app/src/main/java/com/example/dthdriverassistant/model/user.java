@@ -1,6 +1,8 @@
 package com.example.dthdriverassistant.model;
 
-public class user {
+import java.io.Serializable;
+
+public class user implements Serializable {
     private String id, email, avatar, name;
 
     public user() {

@@ -36,6 +36,10 @@
                     android:id="@+id/find"
                     android:icon="@drawable/ic_baseline_location"
                     android:title="Tìm vị trí" />
+                <item
+                    android:id="@+id/help"
+                    android:icon="@drawable/ic_help_phone"
+                    android:title="Gọi giúp đỡ" />
             </group>
         </menu>
     </item>
