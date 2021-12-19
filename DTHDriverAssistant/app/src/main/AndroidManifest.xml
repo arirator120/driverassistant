@@ -14,6 +14,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DTHDriverAssistant">
         <activity
+            android:name=".EditInfoActivity"
+            android:exported="true" />
+        <activity
             android:name=".activity.add.AddVehicleActivity"
             android:exported="false" />
         <activity
@@ -27,11 +30,7 @@
             android:exported="false" />
         <activity
             android:name=".activity.add.AddFuelActivity"
-            android:exported="false"
-            />
-        <activity
-            android:name=".EditInfoActivity"
-            android:exported="true" />
+            android:exported="false" />
         <activity
             android:name=".activity.HomeActivity"
             android:exported="false" />
