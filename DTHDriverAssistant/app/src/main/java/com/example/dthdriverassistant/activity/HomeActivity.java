@@ -43,7 +43,7 @@ import com.google.firebase.database.ValueEventListener;
 public class HomeActivity extends AppCompatActivity{
 //    ImageView avatarUser;
 //    TextView nameUser, emailUser, idUser;
-    Button signOut, EditInfo;
+    Button signOut;
     GoogleSignInClient mGoogleSignInClient;
     DrawerLayout drawer;
     NavigationView navigationView;
@@ -67,7 +67,6 @@ public class HomeActivity extends AppCompatActivity{
         FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
         fragmentTransaction.replace(R.id.fragment_container, new HomeFragment());
         fragmentTransaction.commit();
-
 
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -119,7 +118,7 @@ public class HomeActivity extends AppCompatActivity{
 //        nameUser = findViewById(R.id.nameUser);
 //        emailUser = findViewById(R.id.emailUser);
 //        idUser = findViewById(R.id.idUser);
-        EditInfo= findViewById(R.id.EditInfo);
+        //EditInfo= findViewById(R.id.EditInfo);
 
         drawer = findViewById(R.id.drawer_layout);
         signOut = findViewById(R.id.signOut);
@@ -188,8 +187,8 @@ public class HomeActivity extends AppCompatActivity{
 
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.EditInfo:
-                Intent i = new Intent(this, EditInfoActivity.class);
+            case R.id.editInfo:
+                Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
                 startActivity(i);
                 break;
 

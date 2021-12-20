@@ -38,8 +38,8 @@
                     android:title="Tìm vị trí" />
                 <item
                     android:id="@+id/help"
-                    android:icon="@drawable/ic_help_phone"
-                    android:title="Gọi giúp đỡ" />
+                    android:icon="@drawable/ic_baseline_call"
+                    android:title="Gọi hỗ trợ" />
             </group>
         </menu>
     </item>
@@ -70,6 +70,10 @@
         >
         <menu>
             <group android:checkableBehavior="single">
+                <item
+                    android:id="@+id/editInfo"
+                    android:icon="@drawable/ic_baseline_edit"
+                    android:title="Sửa thông tin" />
                 <item
                     android:id="@+id/setting"
                     android:icon="@drawable/ic_baseline_settings"
