@@ -20,7 +20,6 @@ import android.widget.Toast;
 
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
-import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.model.oil;
 import com.example.dthdriverassistant.model.vehicle;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
