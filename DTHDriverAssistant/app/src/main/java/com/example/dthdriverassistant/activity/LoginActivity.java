@@ -99,6 +99,7 @@ public class LoginActivity extends AppCompatActivity {
                             FirebaseUser user = mAuth.getCurrentUser();
                             Intent intent = new Intent(LoginActivity.this,HomeActivity.class);
                             startActivity(intent);
+                            Toast.makeText(LoginActivity.this,"Đăng nhập thành công!!",Toast.LENGTH_SHORT).show();
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w("TAG", "signInWithCredential:failure", task.getException());

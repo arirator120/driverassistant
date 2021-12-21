@@ -173,7 +173,6 @@ public class HomeActivity extends AppCompatActivity{
                 if(!snapshot.exists()){
                     dbReference.child(u.getId()).setValue(u);
                 }
-                Toast.makeText(HomeActivity.this,"Đăng nhập thành công!!",Toast.LENGTH_SHORT).show();
 
             }
 
@@ -184,6 +183,13 @@ public class HomeActivity extends AppCompatActivity{
         });
     }
 
+//    private void onClickDetail(user u) {
+//        Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putSerializable("Users", u);
+//        i.putExtras(bundle);
+//        startActivity(i);
+//    }
 
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {

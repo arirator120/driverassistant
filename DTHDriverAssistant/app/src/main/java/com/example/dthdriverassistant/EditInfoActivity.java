@@ -1,17 +1,33 @@
 package com.example.dthdriverassistant;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.dthdriverassistant.activity.HomeActivity;
+import com.example.dthdriverassistant.activity.LoginActivity;
+import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.user;
+import com.example.dthdriverassistant.model.vehicle;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class EditInfoActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
@@ -19,17 +35,25 @@ public class EditInfoActivity extends AppCompatActivity {
     user u;
     EditText etEditName, etEditPhone;
     Button btnEditSave, btnEditClose;
+    String idUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_info);
         init();
-        //getData();
+
+        GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
+        if (acct != null) {
+            idUser = acct.getId();
+            //Log.d("id", idUser);
+        }
+        syncInfo(idUser);
         btnEditSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setData(u);
+                setData(acct,u);
                 finish();
+                Toast.makeText(EditInfoActivity.this,"Cập nhật thành công!",Toast.LENGTH_SHORT).show();
             }
         });
         btnEditClose.setOnClickListener(new View.OnClickListener() {
@@ -38,6 +62,7 @@ public class EditInfoActivity extends AppCompatActivity {
                 finish();
             }
         });
+
     }
     public void init(){
         etEditName= findViewById(R.id.etEditName);
@@ -45,100 +70,46 @@ public class EditInfoActivity extends AppCompatActivity {
         btnEditSave= findViewById(R.id.btnEditSave);
         btnEditClose= findViewById(R.id.btnEditClose);
     }
+    public void syncInfo(String idUser){
+        DatabaseReference dbReference = mDatabase.getReference("Users"); //phải tạo lại dbReference
+        dbReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                if (snapshot.exists()) {
 
-//    public void getData(){
-//        Bundle bundle= getIntent().getExtras();
-//        u = (user) bundle.get("Users");
-//        etEditName.setText(u.getName());
-//        //etEditPhone.setText(u.get);
-//
-//    }
-    public void setData(user u){
-        u.setName(etEditName.getText().toString());
-        myRef = mDatabase.getReference("Users");
+                    for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                        user _u = dataSnapshot.getValue(user.class); //
+                        if (_u != null){
+                            if(_u.getId().equals(idUser)){
+                                etEditName.setText(_u.getName());
+                                Log.d("fb doo",""+_u.getId());
+                            }
 
-        myRef.child(u.getId()).setValue(u);
-        Intent i= new Intent(this, EditInfoActivity.class);
-        Bundle bundle= new Bundle();
-        bundle.putSerializable("Users",u);
-        i.putExtras(bundle);
-        startActivity(i);
-        Toast.makeText(EditInfoActivity.this,"Đã cập nhật thông tin khách hàng "+u.getName(),Toast.LENGTH_LONG).show();
+                        }
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+            }
+        });
+
     }
-//    public void getData(){
-//        Bundle bundle= getIntent().getExtras();
-//        if(bundle == null){
-//            return; //flag=false -> add Student
-//        }
-//        flag=true;
-//        s= (Student) bundle.get("objectStudent");
-//        etAddName.setText(s.getFullName());
-//        etAddStudentId.setText(s.getStudentId());
-//        etAddClass.setText(s.getStdClass());
-//        etAddPhone.setText(s.getPhone());
-//        if(s.isGender()){
-//            radioMale.isChecked();
-//            rgAddGene.check(radioMale.getId());
-//        }
-//        else{
-//            radioFemale.isChecked();
-//            rgAddGene.check(radioFemale.getId());
-//        }
-//        for(int i=0; i<majorList.size(); i++){
-//            if(majorList.get(i).getName().equals(s.getMajor().getName())){
-//                spMajor.setSelection(i);
-//                break;
-//            }
-//        }
-//    }
-//    public void setData(Student s){
-//        if(s==null){
-//            s= new Student();
-//        }
-//        s.setFullName(etAddName.getText().toString());
-//        s.setPhone(etAddPhone.getText().toString());
-//        s.setStudentId(etAddStudentId.getText().toString());
-//        s.setStdClass(etAddClass.getText().toString());
-//        if(radioFemale.isChecked()){
-//            s.setGender(false);
-//            s.setPicture(R.drawable.nu);
-//        }
-//        else {
-//            s.setGender(true);
-//            s.setPicture(R.drawable.nam);
-//        }
-//
-//        s.setMajor((Major) spMajor.getSelectedItem());
-//        myRef= mDatabase.getReference("Students");//tham chieu den node stds
-//        if(flag==false){ // add std
-//            String id= myRef.push().getKey();
-//            s.setId(id);
-//            myRef.child(id).setValue(s);
-//            Toast.makeText(DetailStudentActivity.this,"Đã Add sinh viên "+s.getFullName(),Toast.LENGTH_LONG).show();
-//        }
-//        else{//edit
-//            myRef.child(s.getId()).setValue(s);
-//            Intent i= new Intent(this, ViewStudentActivity.class);
-//            Bundle bundle= new Bundle();
-//            bundle.putSerializable("objectStudent",s);
-//            i.putExtras(bundle);
-//            startActivity(i);
-//            Toast.makeText(DetailStudentActivity.this,"Đã Edit sinh viên "+s.getFullName(),Toast.LENGTH_LONG).show();
-//        }
-//
-//    }
-    //private void onClickUpdate(Student s){
-    //    Intent i= new Intent(this, DetailStudentActivity.class);
-    //    Bundle bundle= new Bundle();
-    //    bundle.putSerializable("objectStudent",s);
-    //    i.putExtras(bundle);
-    //    startActivity(i);
-    //}
-//  private void onClickDetail(Student s) {
-//    Intent i = new Intent(mContext, ViewStudentActivity.class);
-//    Bundle bundle = new Bundle();
-//    bundle.putSerializable("objectStudent", s);
-//    i.putExtras(bundle);
-//    mContext.startActivity(i);
-//  }
+
+    public void setData(GoogleSignInAccount acct ,user u){
+        if(u==null){
+            u= new user();
+        }
+        String email = acct.getEmail();
+        Uri avatar = acct.getPhotoUrl();
+
+        if(avatar != null)
+            u.setAvatar(avatar.toString());
+        u.setEmail(email);
+        u.setId(idUser);
+        u.setName(etEditName.getText()+"");
+        DatabaseReference myRef = mDatabase.getReference("Users");
+        myRef.child(u.getId()).setValue(u);
+    }
+
 }
