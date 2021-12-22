@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dthdriverassistant.activity.HomeActivity;
@@ -33,6 +34,7 @@ public class EditInfoActivity extends AppCompatActivity {
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
     DatabaseReference myRef;
     user u;
+    TextView tvEmail;
     EditText etEditName, etEditPhone;
     Button btnEditSave, btnEditClose;
     String idUser;
@@ -67,6 +69,7 @@ public class EditInfoActivity extends AppCompatActivity {
     public void init(){
         etEditName= findViewById(R.id.etEditName);
         etEditPhone= findViewById(R.id.etEditPhone);
+        tvEmail= findViewById(R.id.tvEmail);
         btnEditSave= findViewById(R.id.btnEditSave);
         btnEditClose= findViewById(R.id.btnEditClose);
     }
@@ -76,15 +79,14 @@ public class EditInfoActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
-
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         user _u = dataSnapshot.getValue(user.class); //
                         if (_u != null){
                             if(_u.getId().equals(idUser)){
                                 etEditName.setText(_u.getName());
-                                Log.d("fb doo",""+_u.getId());
+                                tvEmail.setText(_u.getEmail());
+                                etEditPhone.setText(_u.getPhone());
                             }
-
                         }
                     }
                 }
@@ -107,7 +109,8 @@ public class EditInfoActivity extends AppCompatActivity {
             u.setAvatar(avatar.toString());
         u.setEmail(email);
         u.setId(idUser);
-        u.setName(etEditName.getText()+"");
+        u.setName(etEditName.getText().toString());
+        u.setPhone(etEditPhone.getText().toString());
         DatabaseReference myRef = mDatabase.getReference("Users");
         myRef.child(u.getId()).setValue(u);
     }

@@ -45,6 +45,37 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
+            android:text="Email"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvEmail"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="2.2"
+            android:fontFamily="serif"
+            android:gravity="center_vertical"
+            android:text="duy@gmail.com"
+            android:textColor="#53C857"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="10dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:layout_weight="1"
+            android:gravity="center_vertical"
             android:text="Tên"
             android:textSize="18sp"
             android:textStyle="bold" />
@@ -81,7 +112,7 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="2.2"
-            android:hint="Phone" />
+            android:hint="Chưa nhập số điện thoại" />
     </LinearLayout>
 
     <LinearLayout
