@@ -69,7 +69,7 @@ public class EditInfoActivity extends AppCompatActivity {
     public void init(){
         etEditName= findViewById(R.id.etEditName);
         etEditPhone= findViewById(R.id.etEditPhone);
-        tvEmail= findViewById(R.id.tvEmail);
+//        tvEmail= findViewById(R.id.tvEmail);
         btnEditSave= findViewById(R.id.btnEditSave);
         btnEditClose= findViewById(R.id.btnEditClose);
     }

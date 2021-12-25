@@ -30,7 +30,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_motor"
             />
         <RelativeLayout
             android:layout_weight="1"
@@ -70,7 +70,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_day"
             />
 
         <EditText
@@ -96,7 +96,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_time"
             />
 
         <EditText
@@ -124,7 +124,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_linhkienxe"
             />
 
         <EditText
@@ -148,7 +148,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_soluong"
             />
 
         <EditText
@@ -173,7 +173,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_money"
             />
 
         <EditText
@@ -201,7 +201,7 @@ tools:context=".activity.add.AddRepairPartsActivity">
             android:background="@drawable/circle_avatar"
             android:layout_height="40dp"
             android:layout_width="40dp"
-            android:src="@drawable/ic_calendar"
+            android:src="@drawable/ic_notes"
             />
         <EditText
             android:layout_marginLeft="5dp"

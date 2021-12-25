@@ -31,7 +31,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_motor"
                 />
             <RelativeLayout
                 android:layout_weight="1"
@@ -71,7 +71,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_day"
                 />
 
             <EditText
@@ -97,7 +97,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_time"
                 />
 
             <EditText
@@ -125,7 +125,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_money"
                 />
 
             <EditText
@@ -151,7 +151,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_dungtichdo"
                 />
 
             <EditText
@@ -176,7 +176,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_sokm"
                 />
 
             <EditText
@@ -202,7 +202,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_map"
                 />
 
             <EditText
@@ -227,7 +227,7 @@
                 android:background="@drawable/circle_avatar"
                 android:layout_height="40dp"
                 android:layout_width="40dp"
-                android:src="@drawable/ic_calendar"
+                android:src="@drawable/ic_notes"
                 />
             <EditText
                 android:layout_marginLeft="5dp"
