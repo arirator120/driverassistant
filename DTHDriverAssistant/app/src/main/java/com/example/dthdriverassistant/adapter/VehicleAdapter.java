@@ -18,9 +18,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dthdriverassistant.R;
-import com.example.dthdriverassistant.activity.add.AddFuelActivity;
 import com.example.dthdriverassistant.activity.add.AddVehicleActivity;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.vehicle;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -132,7 +130,7 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.ViewHold
         ImageButton imgBtnDelete;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivCar = itemView.findViewById(R.id.ivCar);
+            ivCar = itemView.findViewById(R.id.ivTime);
             tvNameCar = itemView.findViewById(R.id.tvNameCar);
             tvSign = itemView.findViewById(R.id.tvSign);
             imgBtnDelete = itemView.findViewById(R.id.imgBtnDelete);

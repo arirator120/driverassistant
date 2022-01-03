@@ -141,7 +141,7 @@ public class RepairPartsAdapter extends RecyclerView.Adapter<RepairPartsAdapter.
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            ivCar = itemView.findViewById(R.id.ivCar);
+            ivCar = itemView.findViewById(R.id.ivTime);
             tvNameCar = itemView.findViewById(R.id.tvNameCar);
 
             tvNamePrice = itemView.findViewById(R.id.tvNamePrice);

@@ -3,7 +3,6 @@ package com.example.dthdriverassistant.adapter;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,7 +17,6 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.add.AddFuelActivity;
 import com.example.dthdriverassistant.model.fuel;
@@ -135,7 +133,7 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelAdapter.ViewHolder> {
         ImageButton imgBtnDelete;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            ivCar = itemView.findViewById(R.id.ivCar);
+            ivCar = itemView.findViewById(R.id.ivTime);
             tvNameCar = itemView.findViewById(R.id.tvNameCar);
             tvPrice = itemView.findViewById(R.id.tvPrice);
             tvDate = itemView.findViewById(R.id.tvDate);

@@ -50,7 +50,7 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/round_border.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_change_oil.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_fuel.xml" value="0.4" />
-        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_reminder.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_reminder.xml" value="0.264" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_repair_parts.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_vehicle.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_edit_info.xml" value="0.25" />
@@ -60,8 +60,13 @@
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_add_data.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_history_fuel.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_history_repair_parts.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_remind.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/nav_header.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_history_item.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_remind_item.xml" value="0.4" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_vehicle_item.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

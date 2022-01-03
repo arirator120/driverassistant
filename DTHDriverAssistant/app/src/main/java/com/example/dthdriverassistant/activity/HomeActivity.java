@@ -25,6 +25,7 @@ import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
 import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.HistoryRepairPartsFragment;
 import com.example.dthdriverassistant.fragment.HomeFragment;
+import com.example.dthdriverassistant.fragment.RemindFragment;
 import com.example.dthdriverassistant.model.user;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -224,6 +225,10 @@ public class HomeActivity extends AppCompatActivity{
 
                 break;
 
+            case R.id.nav_reminder:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new RemindFragment()).commit();
+                break;
             case R.id.signOut:
                 finish();
                 signOut();
