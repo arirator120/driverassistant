@@ -16,9 +16,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.dthdriverassistant.EditInfoActivity;
+import com.bumptech.glide.Glide;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.AddDataFragment;
 import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
@@ -98,8 +100,48 @@ public class HomeActivity extends AppCompatActivity{
         if (acct != null) {
             setUserFireBase(acct);
             //avatarUser.setImageResource(avatar);
+            View headerView = navigationView.getHeaderView(0);
+            TextView name = headerView.findViewById(R.id.nameUser);
+            ImageView image = headerView.findViewById(R.id.imageAvatar);
+            Button editInfo = headerView.findViewById(R.id.editInfo);
 
+            dbReference = mDatabase.getReference("Users");
+            dbReference.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot snapshot) {
+                    if (snapshot.exists()) {
+                        for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+
+                            user u= dataSnapshot.getValue(user.class);
+                            if(u.getId().equals(acct.getId())){
+                                name.setText(u.getName()); //dc
+                                Glide.with(getApplicationContext())
+                                        .load(String.valueOf(Uri.parse(u.getAvatar())))
+                                        .circleCrop()
+                                        .into(image);
+                            }
+                        }
+                    }
+
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError error) {
+
+                }
+            });
+
+            editInfo.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
+                    startActivity(i);
+                }
+            });
         }
+
+
 
     }
 
@@ -115,11 +157,6 @@ public class HomeActivity extends AppCompatActivity{
 
 
     private void init(){
-//        avatarUser = findViewById(R.id.avatarUser);
-//        nameUser = findViewById(R.id.nameUser);
-//        emailUser = findViewById(R.id.emailUser);
-//        idUser = findViewById(R.id.idUser);
-        //EditInfo= findViewById(R.id.EditInfo);
 
         drawer = findViewById(R.id.drawer_layout);
         signOut = findViewById(R.id.signOut);
@@ -148,12 +185,6 @@ public class HomeActivity extends AppCompatActivity{
         String email = acct.getEmail();
         Uri avatar = acct.getPhotoUrl();
 
-//        nameUser.setText(name);
-//        emailUser.setText(email);
-//        idUser.setText(id);
-//        Glide.with(HomeActivity.this)
-//                .load(String.valueOf(avatar))
-//                .into(avatarUser);
 
         //thêm vào object user
 
@@ -184,20 +215,12 @@ public class HomeActivity extends AppCompatActivity{
         });
     }
 
-//    private void onClickDetail(user u) {
-//        Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
-//        Bundle bundle = new Bundle();
-//        bundle.putSerializable("Users", u);
-//        i.putExtras(bundle);
-//        startActivity(i);
-//    }
-
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.editInfo:
-                Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
-                startActivity(i);
-                break;
+//            case R.id.editInfo:
+//                Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
+//                startActivity(i);
+//                break;
 
             case R.id.nav_home:
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,

@@ -5,32 +5,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".EditInfoActivity">
+    tools:context=".activity.EditInfoActivity">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#ffa07a"
         android:gravity="center"
-        android:textColor="#FFFFFF"
         android:padding="15dp"
-        android:textStyle="bold"
         android:text="Thông tin khách hàng"
-        android:textSize="22sp" />
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        tools:ignore="TextContrastCheck" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_margin="10dp"
-        android:layout_weight="2"
-        android:orientation="horizontal">
+        android:layout_weight="3"
+        android:orientation="vertical"
+        android:gravity="center_horizontal"
+        >
 
         <ImageView
             android:id="@+id/imgEditAvatar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="100dp"
+            android:layout_height="0dp"
             android:layout_weight="1"
             android:src="@drawable/ic_ava" />
+        <Button
+            android:id="@+id/selectImagebtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="13sp"
+            android:text="Upload"
+            android:backgroundTint="#03A9F4"
+            />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -83,7 +96,8 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="2.2"
-            android:hint="Tên" />
+            android:hint="Tên"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout
@@ -109,7 +123,8 @@
             android:layout_height="match_parent"
             android:layout_margin="5dp"
             android:layout_weight="2.2"
-            android:hint="Chưa nhập số điện thoại" />
+            android:hint="Chưa nhập số điện thoại"
+            tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
 
     <LinearLayout

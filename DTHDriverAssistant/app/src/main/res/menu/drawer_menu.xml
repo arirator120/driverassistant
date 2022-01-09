@@ -71,10 +71,6 @@
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/editInfo"
-                    android:icon="@drawable/ic_baseline_edit"
-                    android:title="Sửa thông tin" />
-                <item
                     android:id="@+id/setting"
                     android:icon="@drawable/ic_baseline_settings"
                     android:title="Cài đặt" />
