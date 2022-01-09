@@ -90,7 +90,7 @@ public class HistoryFuelFragment extends Fragment {
         btnExport = v.findViewById(R.id.btnExport);
 
         if (checkPermission()) {
-            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+//            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
         } else {
             requestPermission();
         }

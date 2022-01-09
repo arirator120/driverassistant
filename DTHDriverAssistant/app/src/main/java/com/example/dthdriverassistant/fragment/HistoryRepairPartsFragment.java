@@ -1,12 +1,18 @@
 package com.example.dthdriverassistant.fragment;
 
+import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
+import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
+
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -65,6 +71,9 @@ public class HistoryRepairPartsFragment extends Fragment {
     String idUser;
     Button btnExport;
 
+    private static final int PERMISSION_REQUEST_CODE = 200;
+
+
     public HistoryRepairPartsFragment() {
         // Required empty public constructor
     }
@@ -83,6 +92,12 @@ public class HistoryRepairPartsFragment extends Fragment {
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Lịch sử thay linh kiện");
         rvHisRepairParts = v.findViewById(R.id.rvHisRepairParts);
         btnExport = v.findViewById(R.id.btnExport);
+
+        if (checkPermission()) {
+//            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+        } else {
+            requestPermission();
+        }
 
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -246,5 +261,37 @@ public class HistoryRepairPartsFragment extends Fragment {
         super.onDestroy();
         if(adapter!=null)
             adapter.release();
+    }
+
+    private boolean checkPermission() {
+        // checking of permissions.
+        int permission1 = ContextCompat.checkSelfPermission(getContext(), WRITE_EXTERNAL_STORAGE);
+        int permission2 = ContextCompat.checkSelfPermission(getContext(), READ_EXTERNAL_STORAGE);
+        return permission1 == PackageManager.PERMISSION_GRANTED && permission2 == PackageManager.PERMISSION_GRANTED;
+    }
+
+    private void requestPermission() {
+        // requesting permissions if not provided.
+        ActivityCompat.requestPermissions(getActivity(), new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, PERMISSION_REQUEST_CODE);
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        if (requestCode == PERMISSION_REQUEST_CODE) {
+            if (grantResults.length > 0) {
+
+                // after requesting permissions we are showing
+                // users a toast message of permission granted.
+                boolean writeStorage = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                boolean readStorage = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+
+                if (writeStorage && readStorage) {
+                    Toast.makeText(getContext(), "Permission Granted..", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getContext(), "Permission Denined.", Toast.LENGTH_SHORT).show();
+                    getActivity().finish();
+                }
+            }
+        }
     }
 }

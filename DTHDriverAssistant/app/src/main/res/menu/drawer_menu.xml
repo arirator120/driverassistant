@@ -31,11 +31,6 @@
                     android:icon="@drawable/ic_add"
                     android:title="Thêm dữ liệu"
                     />
-
-                <item
-                    android:id="@+id/find"
-                    android:icon="@drawable/ic_baseline_location"
-                    android:title="Tìm vị trí" />
                 <item
                     android:id="@+id/help"
                     android:icon="@drawable/ic_baseline_call"
@@ -70,10 +65,6 @@
         >
         <menu>
             <group android:checkableBehavior="single">
-                <item
-                    android:id="@+id/setting"
-                    android:icon="@drawable/ic_baseline_settings"
-                    android:title="Cài đặt" />
                 <item
                     android:id="@+id/signOut"
                     android:icon="@drawable/ic_logout"

@@ -23,6 +23,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.AddDataFragment;
+import com.example.dthdriverassistant.fragment.CalendarFragment;
 import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
 import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.HistoryRepairPartsFragment;
@@ -217,16 +218,17 @@ public class HomeActivity extends AppCompatActivity{
 
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {
-//            case R.id.editInfo:
-//                Intent i = new Intent(HomeActivity.this, EditInfoActivity.class);
-//                startActivity(i);
-//                break;
-
             case R.id.nav_home:
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
 
                 break;
+
+            case R.id.nav_calendar:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new CalendarFragment()).commit();
+                break;
+
             case R.id.nav_add:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AddDataFragment()).commit();
