@@ -24,6 +24,7 @@ import com.bumptech.glide.Glide;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.fragment.AddDataFragment;
 import com.example.dthdriverassistant.fragment.CalendarFragment;
+import com.example.dthdriverassistant.fragment.HelpFragment;
 import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
 import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.HistoryRepairPartsFragment;
@@ -234,11 +235,18 @@ public class HomeActivity extends AppCompatActivity{
                         new AddDataFragment()).commit();
 
                 break;
+
+            case R.id.nav_help:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HelpFragment()).commit();
+                break;
+
             case R.id.nav_his_fuel:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HistoryFuelFragment()).commit();
 
                 break;
+
             case R.id.nav_his_ch_oil:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HistoryChangeOilFragment()).commit();

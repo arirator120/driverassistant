@@ -32,7 +32,7 @@
                     android:title="Thêm dữ liệu"
                     />
                 <item
-                    android:id="@+id/help"
+                    android:id="@+id/nav_help"
                     android:icon="@drawable/ic_baseline_call"
                     android:title="Gọi hỗ trợ" />
             </group>
