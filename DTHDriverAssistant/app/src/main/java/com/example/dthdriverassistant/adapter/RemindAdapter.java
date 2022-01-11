@@ -95,7 +95,7 @@ public class RemindAdapter extends  RecyclerView.Adapter<RemindAdapter.ViewHolde
                 .setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        _myRef = mDatabase.getReference("Remind");
+                        _myRef = mDatabase.getReference("Reminders");
                         _myRef.child(r.getId()).removeValue(); //xóa object trên fb
                         Toast.makeText(mContext, "Xóa thành công!!", Toast.LENGTH_LONG).show();
                         dialogInterface.dismiss();

@@ -32,6 +32,11 @@
                     android:title="Thêm dữ liệu"
                     />
                 <item
+                    android:id="@+id/nav_map"
+                    android:icon="@drawable/ic_baseline_location"
+                    android:title="Tìm vị trí"
+                    />
+                <item
                     android:id="@+id/nav_help"
                     android:icon="@drawable/ic_baseline_call"
                     android:title="Gọi hỗ trợ" />

@@ -70,7 +70,11 @@ public class RemindFragment extends Fragment {
 
         getData(); // nhân dữ liệu từ fb
 
-        rvRemind.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(v.getContext());
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+
+        rvRemind.setLayoutManager(mLayoutManager);
         rvRemind.setHasFixedSize(true);
         adapter = new RemindAdapter(lstRemind,v.getContext());
         rvRemind.setAdapter(adapter);

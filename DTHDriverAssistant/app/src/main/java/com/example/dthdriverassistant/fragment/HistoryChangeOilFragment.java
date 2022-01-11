@@ -24,14 +24,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dthdriverassistant.BuildConfig;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
 import com.example.dthdriverassistant.adapter.ChangeOilAdapter;
-import com.example.dthdriverassistant.adapter.FuelAdapter;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.oil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -68,6 +68,11 @@ public class HistoryChangeOilFragment extends Fragment {
     List<oil> lstChangeOil;
     ChangeOilAdapter adapter;
     String idUser;
+    LinearLayout layoutReverse;
+    TextView tvReverse;
+
+    boolean flag =true; // đã đảo ngược
+    //true: ngược, fasle: thuận
 
     Button btnExport;
     private static final int PERMISSION_REQUEST_CODE = 200;
@@ -91,6 +96,8 @@ public class HistoryChangeOilFragment extends Fragment {
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Lịch sử thay nhớt");
         rvHisChangeOil = v.findViewById(R.id.rvHisChangeOil);
         btnExport = v.findViewById(R.id.btnExport);
+        layoutReverse = v.findViewById(R.id.layout_Reverse);
+        tvReverse = v.findViewById(R.id.tvReverse);
 
         if (checkPermission()) {
 //            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
@@ -112,10 +119,43 @@ public class HistoryChangeOilFragment extends Fragment {
 
         getData(); // nhân dữ liệu từ fb
 
-        rvHisChangeOil.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        //reverse list
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(v.getContext());
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+
+        layoutReverse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayoutManager mLayoutManager;
+                if(flag == true){
+                    //đảo ngược lại khi được click
+                    mLayoutManager = new LinearLayoutManager(v.getContext(),  LinearLayoutManager.VERTICAL ,false);
+                    flag = false;
+                    rvHisChangeOil.setLayoutManager(mLayoutManager);
+                    rvHisChangeOil.setHasFixedSize(true);
+                    adapter = new ChangeOilAdapter(lstChangeOil,v.getContext());
+                    rvHisChangeOil.setAdapter(adapter);
+                    tvReverse.setText("Cũ nhất");
+                    return;
+                }
+                mLayoutManager = new LinearLayoutManager(v.getContext());
+                mLayoutManager.setReverseLayout(true);
+                mLayoutManager.setStackFromEnd(true);
+                flag = true;
+                rvHisChangeOil.setLayoutManager(mLayoutManager);
+                rvHisChangeOil.setHasFixedSize(true);
+                adapter = new ChangeOilAdapter(lstChangeOil,v.getContext());
+                rvHisChangeOil.setAdapter(adapter);
+                tvReverse.setText("Mới nhất");
+            }
+        });
+
+        rvHisChangeOil.setLayoutManager(mLayoutManager);
         rvHisChangeOil.setHasFixedSize(true);
         adapter = new ChangeOilAdapter(lstChangeOil,v.getContext());
         rvHisChangeOil.setAdapter(adapter);
+
 
         btnExport.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -154,14 +194,26 @@ public class HistoryChangeOilFragment extends Fragment {
             table.addCell("Xe thay");
             table.addCell("Giá tiền");
 
-            for(int i = 0; i< lstChangeOil.size(); i++){
-                oil oil = lstChangeOil.get(i); //list đã đọc thanh lọc
-//                Log.d("fuel:", fuel + "");
-                table.addCell(oil.getCalFilled());
-                table.addCell(oil.getVehicle().getName());
-                String priceFormat = String.format("%,d",oil.getPrice());
-                String price = priceFormat.replace(",","."); //thay , thành .
-                table.addCell(price + "VND");
+
+            if(flag == false){
+                for(int i = 0; i< lstChangeOil.size(); i++){
+                    oil oil = lstChangeOil.get(i); //list đã đọc thanh lọc
+                    table.addCell(oil.getCalFilled());
+                    table.addCell(oil.getVehicle().getName());
+                    String priceFormat = String.format("%,d",oil.getPrice());
+                    String price = priceFormat.replace(",","."); //thay , thành .
+                    table.addCell(price + "VND");
+
+                }
+            }else{
+                for(int i = lstChangeOil.size() - 1; i>= 0; i--){
+                    oil oil = lstChangeOil.get(i); //list đã đọc thanh lọc
+                    table.addCell(oil.getCalFilled());
+                    table.addCell(oil.getVehicle().getName());
+                    String priceFormat = String.format("%,d",oil.getPrice());
+                    String price = priceFormat.replace(",","."); //thay , thành .
+                    table.addCell(price + "VND");
+                }
 
             }
 
@@ -214,7 +266,6 @@ public class HistoryChangeOilFragment extends Fragment {
                     }
 
                 }
-                //Log.d("m",g+ "");
             }
 
             @Override

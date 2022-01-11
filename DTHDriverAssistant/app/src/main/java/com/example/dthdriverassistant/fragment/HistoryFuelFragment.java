@@ -25,13 +25,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.dthdriverassistant.BuildConfig;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
+import com.example.dthdriverassistant.adapter.ChangeOilAdapter;
 import com.example.dthdriverassistant.adapter.FuelAdapter;
 import com.example.dthdriverassistant.model.fuel;
+import com.example.dthdriverassistant.model.oil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -73,6 +77,13 @@ public class HistoryFuelFragment extends Fragment {
     List<fuel> lstFuel;
     FuelAdapter adapter;
     String idUser;
+
+    LinearLayout layoutReverse;
+    TextView tvReverse;
+
+    boolean flag =true; // đã đảo ngược
+    //true: ngược, fasle: thuận
+
     Button btnExport;
     private static final int PERMISSION_REQUEST_CODE = 200;
 
@@ -88,6 +99,8 @@ public class HistoryFuelFragment extends Fragment {
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Lịch sử đổ xăng");
         rvHisFuel = v.findViewById(R.id.rvRefuel);
         btnExport = v.findViewById(R.id.btnExport);
+        layoutReverse = v.findViewById(R.id.layout_Reverse);
+        tvReverse = v.findViewById(R.id.tvReverse);
 
         if (checkPermission()) {
 //            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
@@ -109,7 +122,39 @@ public class HistoryFuelFragment extends Fragment {
 
         getData(); // nhân dữ liệu từ fb
 
-        rvHisFuel.setLayoutManager(new LinearLayoutManager(v.getContext()));
+        //reverse list
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(v.getContext());
+        mLayoutManager.setReverseLayout(true);
+        mLayoutManager.setStackFromEnd(true);
+
+        layoutReverse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayoutManager mLayoutManager;
+                if(flag == true){
+                    //đảo ngược lại khi được click
+                    mLayoutManager = new LinearLayoutManager(v.getContext(),  LinearLayoutManager.VERTICAL ,false);
+                    flag = false;
+                    rvHisFuel.setLayoutManager(mLayoutManager);
+                    rvHisFuel.setHasFixedSize(true);
+                    adapter = new FuelAdapter(lstFuel,v.getContext());
+                    rvHisFuel.setAdapter(adapter);
+                    tvReverse.setText("Cũ nhất");
+                    return;
+                }
+                mLayoutManager = new LinearLayoutManager(v.getContext());
+                mLayoutManager.setReverseLayout(true);
+                mLayoutManager.setStackFromEnd(true);
+                flag = true;
+                rvHisFuel.setLayoutManager(mLayoutManager);
+                rvHisFuel.setHasFixedSize(true);
+                adapter = new FuelAdapter(lstFuel,v.getContext());
+                rvHisFuel.setAdapter(adapter);
+                tvReverse.setText("Mới nhất");
+            }
+        });
+
+        rvHisFuel.setLayoutManager(mLayoutManager);
         rvHisFuel.setHasFixedSize(true);
         adapter = new FuelAdapter(lstFuel,v.getContext());
         rvHisFuel.setAdapter(adapter);
@@ -150,19 +195,27 @@ public class HistoryFuelFragment extends Fragment {
             table.addCell("Xe đổ");
             table.addCell("Giá tiền");
 
-            for(int i = 0; i< lstFuel.size(); i++){
-                fuel fuel = lstFuel.get(i); //list đã đọc thanh lọc
-                Log.d("fuel:", fuel + "");
-                table.addCell(fuel.getCalFilled());
-                table.addCell(fuel.getVehicle().getName());
-                String priceFormat = String.format("%,d",fuel.getPrice());
-                String price = priceFormat.replace(",","."); //thay , thành .
-                table.addCell(price + "VND");
+            if(flag == false){
+                for(int i = 0; i< lstFuel.size(); i++){
+                    fuel fuel = lstFuel.get(i); //list đã đọc thanh lọc
+                    table.addCell(fuel.getCalFilled());
+                    table.addCell(fuel.getVehicle().getName());
+                    String priceFormat = String.format("%,d",fuel.getPrice());
+                    String price = priceFormat.replace(",","."); //thay , thành .
+                    table.addCell(price + "VND");
+
+                }
+            }else{
+                for(int i = lstFuel.size() - 1; i>= 0; i--){
+                    fuel fuel = lstFuel.get(i); //list đã đọc thanh lọc
+                    table.addCell(fuel.getCalFilled());
+                    table.addCell(fuel.getVehicle().getName());
+                    String priceFormat = String.format("%,d",fuel.getPrice());
+                    String price = priceFormat.replace(",","."); //thay , thành .
+                    table.addCell(price + "VND");
+                }
 
             }
-//            table.addCell("Row 2, Col 1");
-//            table.addCell("Row 2, Col 1");
-//            table.addCell("Row 2, Col 1");
 
             document.add(table);
             Toast.makeText(getContext(),"Xuất file thành công!", Toast.LENGTH_SHORT).show();
@@ -215,7 +268,6 @@ public class HistoryFuelFragment extends Fragment {
                     }
 
                 }
-                //Log.d("m",g+ "");
             }
 
             @Override

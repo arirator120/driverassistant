@@ -29,6 +29,7 @@ import com.example.dthdriverassistant.fragment.HistoryChangeOilFragment;
 import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.HistoryRepairPartsFragment;
 import com.example.dthdriverassistant.fragment.HomeFragment;
+import com.example.dthdriverassistant.fragment.LocationFragment;
 import com.example.dthdriverassistant.fragment.RemindFragment;
 import com.example.dthdriverassistant.model.user;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -219,6 +220,10 @@ public class HomeActivity extends AppCompatActivity{
 
     public void displayView(MenuItem item) {
         switch (item.getItemId()) {
+            case R.id.nav_map:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new LocationFragment()).commit();
+                break;
             case R.id.nav_home:
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();

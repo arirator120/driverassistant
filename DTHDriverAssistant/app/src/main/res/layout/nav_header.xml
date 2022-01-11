@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="220dp"
-    android:background="#BB69CA"
+    android:background="#884AA7"
     android:gravity="bottom|center_horizontal"
     android:orientation="vertical"
     android:theme="@style/ThemeOverlay.AppCompat.Dark"
@@ -30,7 +30,9 @@
         android:id="@+id/editInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Chỉnh sửa"/>
+        android:text="Chỉnh sửa"
+        android:backgroundTint="#03A80A"
+        />
 
 
 

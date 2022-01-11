@@ -231,7 +231,7 @@ public class AddReminderActivity extends AppCompatActivity {
     //ktra có lỗi hay hk
     private String errorMsg(){
         //check lenght cua price < 10 chữ số
-        if(spVehicles.getSelectedItem().toString().equals("Chọn loại xe"))
+        if(spVehicles.getSelectedItem().toString().equals("Chọn xe"))
             return "Vui lòng chọn xe để hiển thị!";
         if(etAction.getText().toString().isEmpty())
             return "Vui lòng dien hành động";
