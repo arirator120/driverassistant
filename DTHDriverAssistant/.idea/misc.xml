@@ -3,25 +3,25 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/drawable/ic_avatar.xml" value="0.2546875" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/drawable/ic_baseline_settings.xml" value="0.2703125" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_change_oil.xml" value="0.25416666666666665" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_reminder.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_repair_parts.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_vehicle.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_edit_info.xml" value="0.264" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_edit_info.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_home.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/activity_login.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_add_data.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_help.xml" value="0.264" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_help.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_change_oil.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_fuel.xml" value="0.2504528985507246" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_repair_parts.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_home.xml" value="0.2504528985507246" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_location.xml" value="0.25416666666666665" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_remind.xml" value="0.25416666666666665" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/nav_header.xml" value="0.25416666666666665" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/row_help_item.xml" value="0.19537037037037036" />
         <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/row_history_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/row_vehicle_item.xml" value="0.25416666666666665" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/menu/drawer_menu.xml" value="0.6" />
-        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/menu/general_info.xml" value="0.25416666666666665" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/row_remind_item.xml" value="0.25416666666666665" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/layout/row_vehicle_item.xml" value="0.264" />
+        <entry key="..\:/2. Dev Mobile/CK/Project/DTHDriverAssistant/app/src/main/res/menu/drawer_menu.xml" value="0.25025641025641027" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/drawable-v24/ic_delete.xml" value="0.3388888888888889" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/drawable/circle_avatar.xml" value="0.35052083333333334" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/drawable/ic_avatar.xml" value="0.35052083333333334" />
@@ -32,36 +32,52 @@
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_repair_parts.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_add_vehicle.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_edit_info.xml" value="0.3302083333333333" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_home.xml" value="0.33" />
+        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_home.xml" value="0.1" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_login.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/activity_main.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_add_data.xml" value="0.33" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_add_fuel.xml" value="0.1" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_add_repair_parts.xml" value="0.1" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_calendar.xml" value="0.3302083333333333" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_help.xml" value="0.3302083333333333" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_change_oil.xml" value="0.33" />
+        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_change_oil.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_fuel.xml" value="0.3237997957099081" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_history_repair_parts.xml" value="0.3237997957099081" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_home.xml" value="0.33" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/fragment_location.xml" value="0.33" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/nav_header.xml" value="0.33" />
-        <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/provider_paths.xml" value="0.19479166666666667" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/row_history_item.xml" value="0.33" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/row_vehicle.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/layout/row_vehicle_item.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/menu/drawer_menu.xml" value="0.5" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/menu/general_info.xml" value="0.3302083333333333" />
         <entry key="..\:/LTV/Mobile/Project/DTHDriverAssistant/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15364583333333334" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable-v24/ic_delete.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/background.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/circle_avatar.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/ic__person.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/ic_add.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/ic_calendar.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/ic_launcher_background.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/ic_lock.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/round_bg.xml" value="0.26614583333333336" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/drawable/round_border.xml" value="0.26614583333333336" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_change_oil.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_fuel.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_reminder.xml" value="0.264" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_repair_parts.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_add_vehicle.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_edit_info.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_home.xml" value="0.25" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_login.xml" value="0.2" />
         <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/activity_signup.xml" value="0.2" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_add_data.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_history_fuel.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_history_repair_parts.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/fragment_remind.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/nav_header.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_history_item.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_remind_item.xml" value="0.4" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/layout/row_vehicle_item.xml" value="0.25" />
+        <entry key="..\:/Users/ASUS/AndroidStudioProjects/CK/DTHDriverAssistant/app/src/main/res/menu/drawer_menu.xml" value="0.25" />
       </map>
     </option>
   </component>

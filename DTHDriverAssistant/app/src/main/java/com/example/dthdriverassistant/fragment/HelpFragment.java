@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.SearchView;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -44,6 +45,8 @@ public class HelpFragment extends Fragment {
     List<help> lstHelp;
     HelpAdapter adapter;
     String idUser;
+    SearchView searchBar;
+
 
     public HelpFragment() {
     }
@@ -55,6 +58,7 @@ public class HelpFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_help, container, false);
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Gọi hỗ trợ");
         rvHelp = v.findViewById(R.id.rvHelp);
+        searchBar = v.findViewById(R.id.searchBar);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -75,8 +79,37 @@ public class HelpFragment extends Fragment {
         adapter = new HelpAdapter(lstHelp,v.getContext());
         rvHelp.setAdapter(adapter);
 
+        if(searchBar != null){
+            searchBar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+                @Override
+                public boolean onQueryTextSubmit(String query) {
+                    return false;
+                }
+
+                @Override
+                public boolean onQueryTextChange(String newText) {
+                    search(newText);
+                    return true;
+                }
+            });
+        }
+
         // Inflate the layout for this fragment
         return v;
+    }
+    public void search(String text){
+        ArrayList<help> s = new ArrayList<>();
+        for (help object: lstHelp){
+            if(object.getName().toLowerCase().contains(text.toLowerCase())){
+                s.add(object);
+            }
+        }
+
+        LinearLayoutManager mLayoutManager = new LinearLayoutManager(getContext());
+        rvHelp.setLayoutManager(mLayoutManager);
+        rvHelp.setHasFixedSize(true);
+        adapter = new HelpAdapter(s,getContext());
+        rvHelp.setAdapter(adapter);
     }
     public void getData() {
         lstHelp = new ArrayList<>();

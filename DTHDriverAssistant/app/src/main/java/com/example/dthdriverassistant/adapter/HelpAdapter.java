@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.widget.SearchView;
 import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,6 +26,7 @@ import com.example.dthdriverassistant.model.remind;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
@@ -39,6 +41,7 @@ public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
         this.helpList = helpList;
         this.mContext = mContext;
     }
+
 
     @NonNull
     @Override
@@ -55,7 +58,6 @@ public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
             return;
 
         holder.tvProvince.setText(h.getName());
-
         holder.ivCallHelp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -63,6 +65,7 @@ public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
                 mContext.startActivity(iCall);
             }
         });
+
     }
 
     @Override
@@ -80,12 +83,13 @@ public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
         CardView layout_itemHelp;
         ImageView ivCallHelp;
         TextView tvProvince;
-
+        SearchView searchBar;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             layout_itemHelp = itemView.findViewById(R.id.layout_itemHelp);
             ivCallHelp = itemView.findViewById(R.id.ivCallHelp);
             tvProvince = itemView.findViewById(R.id.tvProvince);
+            searchBar = itemView.findViewById(R.id.searchBar);
         }
     }
 }

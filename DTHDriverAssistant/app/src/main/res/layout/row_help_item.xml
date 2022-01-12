@@ -49,7 +49,7 @@
                     android:layout_height="match_parent"
                     android:id="@+id/tvProvince"
                     android:text="Tp.Hồ Chí Minh"
-                    android:textColor="#FFB548"
+                    android:textColor="#F69E1D"
                     android:textSize="20sp"
                     android:textStyle="bold"
                     android:gravity="center"/>
