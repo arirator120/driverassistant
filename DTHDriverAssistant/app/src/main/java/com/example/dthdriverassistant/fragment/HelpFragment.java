@@ -118,17 +118,14 @@ public class HelpFragment extends Fragment {
         _myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                help h = snapshot.getValue(help.class); //
+                help h = snapshot.getValue(help.class);
 
                 if (h != null){
-//                    if(h.getIdUser().equals(idUser)){
                         lstHelp.add(h);
                         String key = snapshot.getKey();
                         mKeys.add(key);
                         adapter.notifyDataSetChanged();
-//                    }
                 }
-                //Log.d("m",g+ "");
             }
 
             @Override
@@ -136,7 +133,7 @@ public class HelpFragment extends Fragment {
                 help h = snapshot.getValue(help.class);
                 if(h == null || lstHelp == null || lstHelp.isEmpty())
                     return;
-                int index = mKeys.indexOf(snapshot.getKey()); //tìm vị trí của key trong fb tương ứng key trong listPerson
+                int index = mKeys.indexOf(snapshot.getKey()); //tìm vị trí của key trong fb tương ứng key trong lstHelp
                 lstHelp.set(index, h); //tại vị trí đó, cập nhật gtri p
                 adapter.notifyDataSetChanged();
             }

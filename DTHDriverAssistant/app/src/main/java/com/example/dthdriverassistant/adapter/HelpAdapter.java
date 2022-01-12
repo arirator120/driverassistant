@@ -30,12 +30,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
-    FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-    DatabaseReference _myRef;
 
     private List<help> helpList;
     private Context mContext;
-
 
     public HelpAdapter(List<help> helpList, Context mContext) {
         this.helpList = helpList;
@@ -83,13 +80,12 @@ public class HelpAdapter extends  RecyclerView.Adapter<HelpAdapter.ViewHolder> {
         CardView layout_itemHelp;
         ImageView ivCallHelp;
         TextView tvProvince;
-        SearchView searchBar;
+
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             layout_itemHelp = itemView.findViewById(R.id.layout_itemHelp);
             ivCallHelp = itemView.findViewById(R.id.ivCallHelp);
             tvProvince = itemView.findViewById(R.id.tvProvince);
-            searchBar = itemView.findViewById(R.id.searchBar);
         }
     }
 }
