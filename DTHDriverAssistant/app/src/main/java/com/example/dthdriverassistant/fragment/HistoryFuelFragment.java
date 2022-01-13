@@ -249,8 +249,6 @@ public class HistoryFuelFragment extends Fragment {
         }
     }
 
-
-
     public void getData() {
         lstFuel = new ArrayList<>();
         _myRef = mDatabase.getReference("Refuel");

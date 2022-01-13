@@ -12,6 +12,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
@@ -45,6 +47,12 @@ public class RemindFragment extends Fragment {
     RemindAdapter adapter;
     String idUser;
 
+    LinearLayout layoutReverse;
+    TextView tvReverse;
+
+    boolean flag =true; // đã đảo ngược
+    //true: ngược, fasle: thuận
+
     public RemindFragment() {
         // Required empty public constructor
     }
@@ -55,6 +63,7 @@ public class RemindFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_remind, container, false);
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Danh sách nhắc nhở");
         rvRemind = v.findViewById(R.id.rvRemind);
+        layoutReverse = v.findViewById(R.id.layout_Reverse);
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -70,16 +79,49 @@ public class RemindFragment extends Fragment {
 
         getData(); // nhân dữ liệu từ fb
 
+        //reverse list
         LinearLayoutManager mLayoutManager = new LinearLayoutManager(v.getContext());
         mLayoutManager.setReverseLayout(true);
         mLayoutManager.setStackFromEnd(true);
+
+        layoutReverse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                LinearLayoutManager mLayoutManager;
+                if(flag == true){
+                    //đảo ngược lại khi được click
+                    mLayoutManager = new LinearLayoutManager(v.getContext(),  LinearLayoutManager.VERTICAL ,false);
+                    flag = false;
+                    rvRemind.setLayoutManager(mLayoutManager);
+                    rvRemind.setHasFixedSize(true);
+                    adapter = new RemindAdapter(lstRemind ,v.getContext());
+                    rvRemind.setAdapter(adapter);
+                    tvReverse = v.findViewById(R.id.tvReverse);
+                    tvReverse.setText("Cũ nhất");
+                    rvRemind.setLayoutManager(mLayoutManager);
+                    rvRemind.setHasFixedSize(true);
+                    adapter = new RemindAdapter(lstRemind,v.getContext());
+                    rvRemind.setAdapter(adapter);
+                    tvReverse = v.findViewById(R.id.tvReverse);
+                    return;
+                }
+                mLayoutManager = new LinearLayoutManager(v.getContext());
+                mLayoutManager.setReverseLayout(true);
+                mLayoutManager.setStackFromEnd(true);
+                flag = true;
+                rvRemind.setLayoutManager(mLayoutManager);
+                rvRemind.setHasFixedSize(true);
+                adapter = new RemindAdapter(lstRemind,v.getContext());
+                rvRemind.setAdapter(adapter);
+                tvReverse.setText("Mới nhất");
+            }
+        });
 
         rvRemind.setLayoutManager(mLayoutManager);
         rvRemind.setHasFixedSize(true);
         adapter = new RemindAdapter(lstRemind,v.getContext());
         rvRemind.setAdapter(adapter);
 
-        // Inflate the layout for this fragment
         return v;
     }
 
@@ -137,6 +179,8 @@ public class RemindFragment extends Fragment {
             }
         });
     }
+
+
 
     @Override
     public void onDestroy() {

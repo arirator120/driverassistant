@@ -61,8 +61,8 @@ public class RemindAdapter extends  RecyclerView.Adapter<RemindAdapter.ViewHolde
 
         holder.tvNameXe.setText("Xe " + r.getVehicle().getName());
         holder.tvAction.setText(r.getTvAction());
-        holder.tvDay.setText(r.getTvDay());
-        holder.tvNote.setText(r.getTvNote());
+        holder.tvDay.setText("Ngày nhắc:" + r.getTvDay());
+        holder.tvNote.setText("Ghi chú:" + r.getTvNote());
 
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
             @Override

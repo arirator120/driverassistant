@@ -183,7 +183,7 @@ public class AddReminderActivity extends AppCompatActivity {
         r = (remind) bundle.get("object_remind");
 
         etAction.setText(r.getTvAction());
-        etDay.setText(r.getTvDay());
+        etDay.setText( r.getTvDay());
         etNote.setText(r.getTvNote());
 //        Log.d("Check", ins.isStatus() + "");
 

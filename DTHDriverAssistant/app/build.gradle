@@ -48,5 +48,4 @@ dependencies {
 //    implementation('com.android.support:appcompat-v7:26.1.0')
     implementation 'com.google.firebase:firebase-database:20.0.3'
     implementation 'com.itextpdf:itextpdf:5.0.6'
-    implementation 'com.itextpdf:itextpdf:5.0.6'
 }
