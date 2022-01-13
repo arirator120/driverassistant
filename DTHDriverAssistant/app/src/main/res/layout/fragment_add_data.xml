@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
     tools:context=".fragment.AddDataFragment"
-    android:background="#4FF192">
+    android:background="#95F3BC">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -69,7 +69,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#FA0707"
+                        android:textColor="#DCB51B"
                         />
                 </LinearLayout>
             </TableRow>
@@ -101,7 +101,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#EC4747"
+                        android:textColor="#D50000"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -128,7 +128,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#FFD600"
+                        android:textColor="#E47C2E"
                         />
                 </LinearLayout>
             </TableRow>
