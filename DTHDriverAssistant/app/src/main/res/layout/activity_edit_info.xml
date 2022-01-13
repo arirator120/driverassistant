@@ -10,7 +10,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#ffa07a"
+        android:background="?attr/colorPrimary"
         android:gravity="center"
         android:padding="15dp"
         android:text="Thông tin khách hàng"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
 
     tools:context=".fragment.AddDataFragment"
-    android:background="#49A5EC">
+    android:background="#4FF192">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -31,9 +31,9 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/circle_avatar"
+                        android:background="@drawable/ic_dungtichdo"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_petrol"
+                        android:src="@drawable/ic_dungtichdo"
                         tools:ignore="SpeakableTextPresentCheck" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -42,7 +42,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#FCD831"
+                        android:textColor="#304FFE"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -60,7 +60,7 @@
                         android:background="@drawable/circle_avatar"
                         android:backgroundTint="#757575"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/ic_oil"
+                        android:src="@drawable/ic_daunhot"
                         tools:ignore="SpeakableTextPresentCheck" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -69,7 +69,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#DEC1C1"
+                        android:textColor="#FA0707"
                         />
                 </LinearLayout>
             </TableRow>
@@ -101,7 +101,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#BC2121"
+                        android:textColor="#EC4747"
                         />
                 </LinearLayout>
                 <LinearLayout
@@ -116,10 +116,10 @@
                         android:layout_width="60dp"
                         android:layout_height="60dp"
                         android:layout_gravity="center"
-                        android:background="@drawable/circle_avatar"
+                        android:background="@drawable/ic_time"
                         android:backgroundTint="#252525"
                         android:scaleType="fitCenter"
-                        android:src="@drawable/icon_clock"
+                        android:src="@drawable/ic_time"
                         tools:ignore="SpeakableTextPresentCheck" />
                     <TextView
                         android:layout_width="wrap_content"
@@ -128,7 +128,7 @@
                         android:layout_gravity="center"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:textColor="#111111"
+                        android:textColor="#FFD600"
                         />
                 </LinearLayout>
             </TableRow>
