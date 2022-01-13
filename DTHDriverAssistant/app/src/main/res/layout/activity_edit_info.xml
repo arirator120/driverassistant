@@ -15,7 +15,7 @@
         android:padding="15dp"
         android:text="Thông tin khách hàng"
         android:textColor="#FFFFFF"
-        android:textSize="22sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         tools:ignore="TextContrastCheck" />
 
@@ -44,40 +44,39 @@
             />
     </LinearLayout>
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="5dp"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:text="Email"
+        android:textSize="20sp"
+        android:textStyle="bold" />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
-        android:layout_weight="1"
+        android:layout_marginBottom="10dp"
+        android:layout_weight="0.7"
+        android:gravity="center"
         android:orientation="horizontal">
         <TextView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_margin="5dp"
-            android:layout_weight="1"
-            android:gravity="center_vertical"
-            android:text="Email"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
             android:id="@+id/tvEmail"
-            android:layout_width="0dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="2.2"
             android:fontFamily="serif"
             android:gravity="center_vertical"
             android:text="duy@gmail.com"
             android:textColor="#53C857"
-            android:textSize="18sp"
+            android:textSize="20sp"
             android:textStyle="bold|italic" />
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
         android:layout_weight="1"
+        android:layout_margin="10dp"
         android:orientation="horizontal">
 
         <TextView
@@ -87,7 +86,7 @@
             android:layout_weight="1"
             android:gravity="center_vertical"
             android:text="Tên"
-            android:textSize="18sp"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
@@ -95,7 +94,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="2.2"
+            android:layout_weight="2.5"
             android:hint="Tên"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
@@ -113,8 +112,8 @@
             android:layout_margin="5dp"
             android:layout_weight="1"
             android:gravity="center_vertical"
-            android:text="Số điện thoại"
-            android:textSize="18sp"
+            android:text="Điện thoại"
+            android:textSize="16sp"
             android:textStyle="bold" />
 
         <EditText
@@ -122,7 +121,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="5dp"
-            android:layout_weight="2.2"
+            android:layout_weight="2.5"
             android:hint="Chưa nhập số điện thoại"
             tools:ignore="TouchTargetSizeCheck" />
     </LinearLayout>
@@ -131,7 +130,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_marginTop="20dp"
-        android:layout_weight="4"
+        android:layout_weight="3"
         android:gravity="center_horizontal"
         android:padding="5dp">
 
