@@ -21,11 +21,9 @@ import com.example.dthdriverassistant.activity.HomeActivity;
 public class LocationFragment extends Fragment {
     private Button btnLocation;
 
-
     public LocationFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {

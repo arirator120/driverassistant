@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,7 @@ import android.widget.TextView;
 
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
-import com.example.dthdriverassistant.adapter.FuelAdapter;
 import com.example.dthdriverassistant.adapter.RemindAdapter;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.remind;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -74,7 +71,6 @@ public class RemindFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         getData(); // nhân dữ liệu từ fb
@@ -132,8 +128,7 @@ public class RemindFragment extends Fragment {
         _myRef.addChildEventListener(new ChildEventListener() {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                remind r = snapshot.getValue(remind.class); //
-                Log.d("mess:",r.getIdUser()+ "");
+                remind r = snapshot.getValue(remind.class);
                 if (r != null){
                     if(r.getIdUser().equals(idUser)){
                         lstRemind.add(r);
@@ -142,7 +137,6 @@ public class RemindFragment extends Fragment {
                         adapter.notifyDataSetChanged();
                     }
                 }
-                //Log.d("m",g+ "");
             }
 
             @Override

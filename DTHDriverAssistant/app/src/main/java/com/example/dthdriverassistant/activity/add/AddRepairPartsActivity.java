@@ -219,7 +219,6 @@ public class AddRepairPartsActivity extends AppCompatActivity {
         });
 
         //đổ dữ liệu lên spinner
-        //Log.d("Check", lstVehicle.size() + "");
         adapter_vehicle = new ArrayAdapter(AddRepairPartsActivity.this, android.R.layout.simple_spinner_item, lstVehicle);
         adapter_vehicle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spVehicles.setAdapter(adapter_vehicle);
@@ -279,7 +278,6 @@ public class AddRepairPartsActivity extends AppCompatActivity {
             Intent i = new Intent(AddRepairPartsActivity.this, HistoryRepairPartsFragment.class);
 
             startService(i);
-            //finish();
             Toast.makeText(AddRepairPartsActivity.this,"Cập nhật hoàn tất!!",Toast.LENGTH_SHORT).show();
         }
 

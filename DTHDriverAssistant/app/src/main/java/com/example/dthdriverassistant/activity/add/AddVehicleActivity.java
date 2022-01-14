@@ -7,7 +7,6 @@ import androidx.appcompat.widget.Toolbar;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -41,7 +40,6 @@ import java.util.Map;
 public class AddVehicleActivity extends AppCompatActivity {
 
     FirebaseDatabase mDatabase = FirebaseDatabase.getInstance();
-//    DatabaseReference dbReference;
     GoogleSignInClient mGoogleSignInClient;
 
     Button btnSave;
@@ -134,7 +132,6 @@ public class AddVehicleActivity extends AppCompatActivity {
         return dateFormat.format(date);
     }
 
-
     private void pickDay(){
         final Calendar calendar = Calendar.getInstance();
         int day = calendar.get(Calendar.DATE);
@@ -151,8 +148,6 @@ public class AddVehicleActivity extends AppCompatActivity {
         }, year, month, day); // bắt buộc phải lần lượt là year, month,day để lấy đúng ngày hiện tại
         datePickerDialog.show();
     }
-
-
 
     public void inItMyType(){
         DatabaseReference dbReference = mDatabase.getReference("Types");
@@ -244,14 +239,8 @@ public class AddVehicleActivity extends AppCompatActivity {
             dbReference.child(v.getId()).setValue(v); //thay đổi giá trị theo getdata thông qua biến ins
             Intent i = new Intent(AddVehicleActivity.this, HomeFragment.class);
             startService(i);
-            //finish();
             Toast.makeText(AddVehicleActivity.this,"Cập nhật hoàn tất!!",Toast.LENGTH_SHORT).show();
         }
-
-//        DatabaseReference dbReference1 = mDatabase.getReference("ChangeOil").child(v.getId()).child("vehicle").child("name");
-//        if(dbReference1 != null){
-//            dbReference1.setValue();
-//        }
         syncRefuel(v);
         syncRepairParts(v);
         syncChangeOil(v);
@@ -267,7 +256,6 @@ public class AddVehicleActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
-//                        Log.d("mess", dbReference1.child("id").getKey());
                         //cần kiểm tra id Vehicle để nhận biết vì nó là khóa chính
                         dbReference1.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -275,10 +263,8 @@ public class AddVehicleActivity extends AppCompatActivity {
                                 if (snapshot.exists()) {
                                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
                                     String id = map.get("id").toString();
-//                                    Log.d("mess",map.get("id") + "");
                                     if(id.equals(v.getId()))
                                         dbReference1.setValue(v);
-
                                 }
                             }
                             @Override
@@ -296,7 +282,6 @@ public class AddVehicleActivity extends AppCompatActivity {
 
     }
 
-
     public void syncChangeOil(vehicle v){
         //thay đổi ls thay nhớt
         DatabaseReference dbReference = mDatabase.getReference("ChangeOil"); //phải tạo lại dbReference
@@ -305,7 +290,6 @@ public class AddVehicleActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                        Log.d("mess", dataSnapshot.getKey().toString());
                         DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
                         dbReference1.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -313,10 +297,8 @@ public class AddVehicleActivity extends AppCompatActivity {
                                 if (snapshot.exists()) {
                                     Map<String, Object> map = (Map<String, Object>) snapshot.getValue();
                                     String id = map.get("id").toString();
-//                                    Log.d("mess",map.get("id") + "");
                                     if(id.equals(v.getId()))
                                         dbReference1.setValue(v);
-
                                 }
                             }
                             @Override
@@ -324,7 +306,6 @@ public class AddVehicleActivity extends AppCompatActivity {
                             }
                         });
                     }
-
                     adapter_type.notifyDataSetChanged();
                 }
             }
@@ -343,7 +324,6 @@ public class AddVehicleActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-//                        Log.d("mess", dataSnapshot.getKey().toString());
                         DatabaseReference dbReference1 = dbReference.child(dataSnapshot.getKey()).child("vehicle");
                         dbReference1.addValueEventListener(new ValueEventListener() {
                             @Override
@@ -369,8 +349,6 @@ public class AddVehicleActivity extends AppCompatActivity {
             }
         });
     }
-
-
 
     //ktra có lỗi hay hk
     private String errorMsg(){

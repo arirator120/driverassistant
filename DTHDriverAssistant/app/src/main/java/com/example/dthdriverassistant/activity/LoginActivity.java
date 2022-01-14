@@ -62,7 +62,6 @@ public class LoginActivity extends AppCompatActivity {
         // Check for existing Google Sign In account, if the user is already signed in
         // the GoogleSignInAccount will be non-null.
         GoogleSignInAccount account = GoogleSignIn.getLastSignedInAccount(this);
-        //updateUI(account);
 
         // Set the dimensions of the sign-in button.
         signInButton = findViewById(R.id.sign_in_button);
@@ -106,8 +105,6 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
-
-
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -121,12 +118,12 @@ public class LoginActivity extends AppCompatActivity {
             try {
                 // Google Sign In was successful, authenticate with Firebase
                 GoogleSignInAccount account = task.getResult(ApiException.class);
-                Log.d("TAG", "firebaseAuthWithGoogle:" + account.getId());
+//                Log.d("TAG", "firebaseAuthWithGoogle:" + account.getId());
 //                firebaseAuthWithGoogle(account.getIdToken());
                 firebaseAuthWithGoogle(account);
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
-                Log.w("TAG", "Google sign in failed", e);
+//                Log.w("TAG", "Google sign in failed", e);
                 Toast.makeText(this,"Error:" + e.getStatusCode(), Toast.LENGTH_SHORT).show();            }
         }
     }

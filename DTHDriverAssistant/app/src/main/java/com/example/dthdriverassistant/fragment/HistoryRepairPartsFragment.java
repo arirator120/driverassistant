@@ -31,10 +31,7 @@ import android.widget.Toast;
 import com.example.dthdriverassistant.BuildConfig;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
-import com.example.dthdriverassistant.adapter.ChangeOilAdapter;
-
 import com.example.dthdriverassistant.adapter.RepairPartsAdapter;
-import com.example.dthdriverassistant.model.oil;
 import com.example.dthdriverassistant.model.part;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -81,12 +78,9 @@ public class HistoryRepairPartsFragment extends Fragment {
 
     private static final int PERMISSION_REQUEST_CODE = 200;
 
-
     public HistoryRepairPartsFragment() {
         // Required empty public constructor
     }
-
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -104,11 +98,10 @@ public class HistoryRepairPartsFragment extends Fragment {
         tvReverse = v.findViewById(R.id.tvReverse);
 
         if (checkPermission()) {
-//            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+            //accepted
         } else {
             requestPermission();
         }
-
 
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
@@ -119,7 +112,6 @@ public class HistoryRepairPartsFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         getData(); // nhân dữ liệu từ fb
@@ -165,7 +157,7 @@ public class HistoryRepairPartsFragment extends Fragment {
             public void onClick(View view) {
                 createFilePDF();
 
-                viewPdf("HistoryChangeOil.pdf", "Dir");
+                viewPdf("HistoryRepairParts.pdf", "Dir");
             }
         });
 
@@ -180,7 +172,7 @@ public class HistoryRepairPartsFragment extends Fragment {
             if(!dir.exists())
                 dir.mkdirs();
 
-            File file = new File(dir, "HistoryChangeOil.pdf");
+            File file = new File(dir, "HistoryRepairParts.pdf");
             FileOutputStream fOut = new FileOutputStream(file);
 
             PdfWriter.getInstance(document, fOut);
@@ -191,9 +183,9 @@ public class HistoryRepairPartsFragment extends Fragment {
             PdfPTable table = new PdfPTable(3);
 
             //cột đề ba
-            table.addCell("Ngày thay linh kiện");
+            table.addCell("Ngay thay linh kien");
             table.addCell("Xe thay");
-            table.addCell("Giá tiền");
+            table.addCell("Gia tien");
 
             if(flag == false){
                 for(int i = 0; i< lstRepairParts.size(); i++){
@@ -230,11 +222,9 @@ public class HistoryRepairPartsFragment extends Fragment {
 
     }
 
-    //worked
     private void viewPdf(String file, String directory) {
 
         File pdfFile = new File(Environment.getExternalStorageDirectory() + "/" + directory + "/" + file);
-//        Uri path = Uri.fromFile(pdfFile);
         Uri uri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",pdfFile);
         // Setting the intent for pdf reader
         Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
@@ -302,7 +292,6 @@ public class HistoryRepairPartsFragment extends Fragment {
             }
         });
     }
-
 
     @Override
     public void onDestroy() {

@@ -47,8 +47,6 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 public class HomeActivity extends AppCompatActivity{
-//    ImageView avatarUser;
-//    TextView nameUser, emailUser, idUser;
     Button signOut;
     GoogleSignInClient mGoogleSignInClient;
     DrawerLayout drawer;
@@ -91,7 +89,6 @@ public class HomeActivity extends AppCompatActivity{
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
                 .requestEmail()
                 .build();
@@ -102,7 +99,6 @@ public class HomeActivity extends AppCompatActivity{
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             setUserFireBase(acct);
-            //avatarUser.setImageResource(avatar);
             View headerView = navigationView.getHeaderView(0);
             TextView name = headerView.findViewById(R.id.nameUser);
             ImageView image = headerView.findViewById(R.id.imageAvatar);
@@ -125,8 +121,6 @@ public class HomeActivity extends AppCompatActivity{
                             }
                         }
                     }
-
-
                 }
 
                 @Override
@@ -143,9 +137,6 @@ public class HomeActivity extends AppCompatActivity{
                 }
             });
         }
-
-
-
     }
 
     @Override
@@ -157,10 +148,7 @@ public class HomeActivity extends AppCompatActivity{
         }
     }
 
-
-
     private void init(){
-
         drawer = findViewById(R.id.drawer_layout);
         signOut = findViewById(R.id.signOut);
         navigationView = findViewById(R.id.nav_view);
@@ -174,7 +162,7 @@ public class HomeActivity extends AppCompatActivity{
                         FirebaseAuth.getInstance().signOut();
                         Intent intent = new Intent(HomeActivity.this,LoginActivity.class);
                         startActivity(intent);
-                        Toast.makeText(HomeActivity.this, "Signed out successfully",Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivity.this, "Đăng xuất thành công!",Toast.LENGTH_SHORT).show();
                         finish();
                     }
                 });
@@ -188,15 +176,11 @@ public class HomeActivity extends AppCompatActivity{
         String email = acct.getEmail();
         Uri avatar = acct.getPhotoUrl();
 
-
-        //thêm vào object user
-
         //nếu đối tượng rỗng
         if(u==null)
             u = new user(); //khởi tạo object để dùng trong app
         if(avatar != null)
             u.setAvatar(avatar.toString());
-        //u.setAvatar('');
         u.setName(name);
         u.setEmail(email);
         u.setId(id);
@@ -208,9 +192,7 @@ public class HomeActivity extends AppCompatActivity{
                 if(!snapshot.exists()){
                     dbReference.child(u.getId()).setValue(u);
                 }
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 Log.d("TAG",error.getMessage());
@@ -227,7 +209,6 @@ public class HomeActivity extends AppCompatActivity{
             case R.id.nav_home:
                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HomeFragment()).commit();
-
                 break;
 
             case R.id.nav_calendar:
@@ -238,7 +219,6 @@ public class HomeActivity extends AppCompatActivity{
             case R.id.nav_add:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AddDataFragment()).commit();
-
                 break;
 
             case R.id.nav_help:
@@ -249,30 +229,27 @@ public class HomeActivity extends AppCompatActivity{
             case R.id.nav_his_fuel:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HistoryFuelFragment()).commit();
-
                 break;
 
             case R.id.nav_his_ch_oil:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HistoryChangeOilFragment()).commit();
-
                 break;
+
             case R.id.nav_his_re_parts:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new HistoryRepairPartsFragment()).commit();
-
                 break;
 
             case R.id.nav_reminder:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new RemindFragment()).commit();
                 break;
+
             case R.id.signOut:
                 finish();
                 signOut();
                 break;
-
-
         }
 
         item.setChecked(true);

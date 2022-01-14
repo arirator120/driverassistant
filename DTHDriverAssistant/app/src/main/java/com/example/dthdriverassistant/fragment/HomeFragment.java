@@ -17,9 +17,7 @@ import android.view.ViewGroup;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
 import com.example.dthdriverassistant.activity.add.AddVehicleActivity;
-import com.example.dthdriverassistant.adapter.FuelAdapter;
 import com.example.dthdriverassistant.adapter.VehicleAdapter;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.vehicle;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -80,7 +78,6 @@ public class HomeFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         layout_item_add.setOnClickListener(new View.OnClickListener() {

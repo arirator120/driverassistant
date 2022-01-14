@@ -16,9 +16,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.example.dthdriverassistant.R;
-import com.example.dthdriverassistant.fragment.HistoryFuelFragment;
 import com.example.dthdriverassistant.fragment.RemindFragment;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.remind;
 import com.example.dthdriverassistant.model.vehicle;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -76,7 +74,6 @@ public class AddReminderActivity extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         inItMyVehicles();
@@ -149,7 +146,6 @@ public class AddReminderActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         //kiểm tra khóa ngoại
-                        //Log.d("idSnapshot", dataSnapshot.child("idUser").getValue() + "" );
                         if(dataSnapshot.child("idUser").getValue().equals(idUser)){
                             vehicle v = dataSnapshot.getValue(vehicle.class);
                             lstVehicle.add(v);
@@ -185,12 +181,10 @@ public class AddReminderActivity extends AppCompatActivity {
         etAction.setText(r.getTvAction());
         etDay.setText( r.getTvDay());
         etNote.setText(r.getTvNote());
-//        Log.d("Check", ins.isStatus() + "");
 
         //bỏ qua cái "Chọn loại xe" -> đi từ 1
         for(int i = 1; i < lstVehicle.size(); i++){
             if(lstVehicle.get(i).getId().equals(r.getVehicle().getId())) { //search trong ds xem id nào = id tư bundle đưa vào
-//                Log.d("CheckEqual", lstVehicle.get(i).getName() + "");
                 spVehicles.setSelection(i);
                 break;
             }

@@ -2,9 +2,6 @@ package com.example.dthdriverassistant.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
@@ -41,9 +38,7 @@ public class AddDataFragment extends Fragment implements View.OnClickListener {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_add_data, container, false);
-//        Toolbar toolbar = view.findViewById(R.id.toolbar);
         ((HomeActivity)getActivity()).getSupportActionBar().setTitle("Thêm dữ liệu");
-
         init(view);
 
         //khi click vao icon
@@ -51,7 +46,6 @@ public class AddDataFragment extends Fragment implements View.OnClickListener {
         imgBtnOil.setOnClickListener(this);
         imgBtnParts.setOnClickListener(this);
         imgBtnReminder.setOnClickListener(this);
-
 
         return view;
     }
@@ -63,26 +57,25 @@ public class AddDataFragment extends Fragment implements View.OnClickListener {
         imgBtnReminder = view.findViewById(R.id.imgBtnReminder);
     }
 
-
     @Override
     public void onClick(View view) {
         Intent i;
         switch(view.getId()){
             case R.id.imgBtnPetrol:
                 i = new Intent(getContext(), AddFuelActivity.class);
-                startActivityForResult(i, 123);
+                startActivity(i);
                 break;
             case R.id.imgBtnOil:
                 i = new Intent(getContext(), AddChangeOilActivity.class);
-                startActivityForResult(i, 456);
+                startActivity(i);
                 break;
             case R.id.imgBtnParts:
                 i = new Intent(getContext(), AddRepairPartsActivity.class);
-                startActivityForResult(i, 789);
+                startActivity(i);
                 break;
             case R.id.imgBtnReminder:
                 i = new Intent(getContext(), AddReminderActivity.class);
-                startActivityForResult(i, 135);
+                startActivity(i);
                 break;
         }
     }

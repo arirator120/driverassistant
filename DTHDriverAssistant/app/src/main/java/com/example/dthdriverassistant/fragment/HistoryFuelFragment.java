@@ -6,7 +6,6 @@ import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.pdf.PdfDocument;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -32,10 +31,8 @@ import android.widget.Toast;
 import com.example.dthdriverassistant.BuildConfig;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
-import com.example.dthdriverassistant.adapter.ChangeOilAdapter;
 import com.example.dthdriverassistant.adapter.FuelAdapter;
 import com.example.dthdriverassistant.model.fuel;
-import com.example.dthdriverassistant.model.oil;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -46,19 +43,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-//import org.w3c.dom.Document;
-
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.OutputStream;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import com.itextpdf.text.Document;
 import com.itextpdf.text.DocumentException;
-import com.itextpdf.text.pdf.PdfPCell;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 
@@ -103,7 +96,7 @@ public class HistoryFuelFragment extends Fragment {
         tvReverse = v.findViewById(R.id.tvReverse);
 
         if (checkPermission()) {
-//            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+            //accepted
         } else {
             requestPermission();
         }
@@ -117,7 +110,6 @@ public class HistoryFuelFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         getData(); // nhân dữ liệu từ fb
@@ -191,9 +183,9 @@ public class HistoryFuelFragment extends Fragment {
             PdfPTable table = new PdfPTable(3);
 
             //cột đề ba
-            table.addCell("Ngày đổ xăng");
-            table.addCell("Xe đổ");
-            table.addCell("Giá tiền");
+            table.addCell("Ngay do xang");
+            table.addCell("Xe do");
+            table.addCell("Gia tien");
 
             if(flag == false){
                 for(int i = 0; i< lstFuel.size(); i++){
@@ -230,11 +222,9 @@ public class HistoryFuelFragment extends Fragment {
 
     }
 
-    //worked
     private void viewPdf(String file, String directory) {
 
         File pdfFile = new File(Environment.getExternalStorageDirectory() + "/" + directory + "/" + file);
-//        Uri path = Uri.fromFile(pdfFile);
         Uri uri = FileProvider.getUriForFile(getContext(), BuildConfig.APPLICATION_ID + ".provider",pdfFile);
         // Setting the intent for pdf reader
         Intent pdfIntent = new Intent(Intent.ACTION_VIEW);
@@ -264,7 +254,6 @@ public class HistoryFuelFragment extends Fragment {
                         mKeys.add(key);
                         adapter.notifyDataSetChanged();
                     }
-
                 }
             }
 

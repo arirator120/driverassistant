@@ -9,7 +9,6 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,9 +16,7 @@ import android.view.ViewGroup;
 import com.example.dthdriverassistant.R;
 import com.example.dthdriverassistant.activity.HomeActivity;
 import com.example.dthdriverassistant.adapter.HelpAdapter;
-import com.example.dthdriverassistant.adapter.RemindAdapter;
 import com.example.dthdriverassistant.model.help;
-import com.example.dthdriverassistant.model.remind;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -47,7 +44,6 @@ public class HelpFragment extends Fragment {
     String idUser;
     SearchView searchBar;
 
-
     public HelpFragment() {
     }
 
@@ -69,7 +65,6 @@ public class HelpFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         getData(); // nhân dữ liệu từ fb
@@ -97,6 +92,7 @@ public class HelpFragment extends Fragment {
         // Inflate the layout for this fragment
         return v;
     }
+
     public void search(String text){
         ArrayList<help> s = new ArrayList<>();
         for (help object: lstHelp){
@@ -111,6 +107,7 @@ public class HelpFragment extends Fragment {
         adapter = new HelpAdapter(s,getContext());
         rvHelp.setAdapter(adapter);
     }
+
     public void getData() {
         lstHelp = new ArrayList<>();
         _myRef = mDatabase.getReference("Helps");
@@ -119,7 +116,6 @@ public class HelpFragment extends Fragment {
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
                 help h = snapshot.getValue(help.class);
-
                 if (h != null){
                         lstHelp.add(h);
                         String key = snapshot.getKey();
@@ -162,6 +158,7 @@ public class HelpFragment extends Fragment {
             }
         });
     }
+
     @Override
     public void onDestroy() {
         super.onDestroy();

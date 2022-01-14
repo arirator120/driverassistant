@@ -45,7 +45,6 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelAdapter.ViewHolder> {
         return holder;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull FuelAdapter.ViewHolder holder, int position) {
         fuel f = fuelList.get(position);
@@ -58,10 +57,8 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelAdapter.ViewHolder> {
             holder.ivCar.setImageResource(R.drawable.ic_oto);
         }
 
-//        holder.ivCar.setImageResource(R.drawable.ic_petrol);
         holder.tvNameCar.setText("Xe " + f.getVehicle().getName());
         holder.tvDate.setText(f.getCalFilled());
-
 
 //        DecimalFormat formatter = new DecimalFormat("#,##,###,####");
         String priceFormat = String.format("%,d",f.getPrice());
@@ -82,7 +79,6 @@ public class FuelAdapter extends RecyclerView.Adapter<FuelAdapter.ViewHolder> {
             }
         });
     }
-
 
     private void onClickEdit(fuel f) {
         Intent i =new Intent(mContext, AddFuelActivity.class);

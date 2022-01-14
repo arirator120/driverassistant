@@ -38,8 +38,6 @@ public class ChangeOilAdapter extends RecyclerView.Adapter<ChangeOilAdapter.View
         this.mContext = mContext;
     }
 
-
-
     @NonNull
     @Override
     public ChangeOilAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -47,7 +45,6 @@ public class ChangeOilAdapter extends RecyclerView.Adapter<ChangeOilAdapter.View
         ChangeOilAdapter.ViewHolder holder = new ChangeOilAdapter.ViewHolder(v);
         return holder;
     }
-
 
     @Override
     public void onBindViewHolder(@NonNull ChangeOilAdapter.ViewHolder holder, int position) {
@@ -91,7 +88,6 @@ public class ChangeOilAdapter extends RecyclerView.Adapter<ChangeOilAdapter.View
 
     }
 
-
     private void onClickEdit(oil o) {
         Intent i =new Intent(mContext, AddChangeOilActivity.class);
         Bundle bundle = new Bundle();
@@ -133,8 +129,6 @@ public class ChangeOilAdapter extends RecyclerView.Adapter<ChangeOilAdapter.View
     public void release(){
         mContext=null;
     }
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView layout_item;

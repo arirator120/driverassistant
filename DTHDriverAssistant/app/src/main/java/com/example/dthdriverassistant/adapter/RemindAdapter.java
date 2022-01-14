@@ -18,9 +18,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.dthdriverassistant.R;
-import com.example.dthdriverassistant.activity.add.AddFuelActivity;
 import com.example.dthdriverassistant.activity.add.AddReminderActivity;
-import com.example.dthdriverassistant.model.fuel;
 import com.example.dthdriverassistant.model.remind;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -53,17 +51,11 @@ public class RemindAdapter extends  RecyclerView.Adapter<RemindAdapter.ViewHolde
         if(r == null)
             return;
 
-        if(r.getVehicle().getType().getName().equals("Xe máy"))
-            holder.ivTime.setImageResource(R.drawable.ic_time);
-        else{
-            holder.ivTime.setImageResource(R.drawable.ic_time);
-        }
-
+        holder.ivTime.setImageResource(R.drawable.ic_time);
         holder.tvNameXe.setText("Xe " + r.getVehicle().getName());
         holder.tvAction.setText(r.getTvAction());
         holder.tvDay.setText("Ngày nhắc:" + r.getTvDay());
         holder.tvNote.setText("Ghi chú:" + r.getTvNote());
-
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,7 +70,6 @@ public class RemindAdapter extends  RecyclerView.Adapter<RemindAdapter.ViewHolde
             }
         });
     }
-
 
     private void onClickEdit(remind r) {
         Intent i =new Intent(mContext, AddReminderActivity.class);

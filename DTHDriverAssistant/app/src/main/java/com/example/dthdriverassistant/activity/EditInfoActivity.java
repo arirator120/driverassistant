@@ -59,7 +59,6 @@ public class EditInfoActivity extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
         syncInfo(idUser);
         btnEditSave.setOnClickListener(new View.OnClickListener() {
@@ -148,14 +147,11 @@ public class EditInfoActivity extends AppCompatActivity {
         String email = acct.getEmail();
         Uri avatar = acct.getPhotoUrl();
 
-//        if(avatar != null)
-//            u.setAvatar(avatar.toString());
         u.setEmail(email);
         u.setId(idUser);
         u.setName(etEditName.getText().toString());
         u.setPhone(etEditPhone.getText().toString());
         myRef = mDatabase.getReference("Users");
-//        myRef.child(u.getId()).setValue(u);
         setFirebaseImage(u);
     }
 
@@ -172,7 +168,6 @@ public class EditInfoActivity extends AppCompatActivity {
                     .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-//                        firebaseImage.setImageURI(null);
                             storageReference.getDownloadUrl()
                                     .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                         @Override
@@ -195,7 +190,6 @@ public class EditInfoActivity extends AppCompatActivity {
                     });
         }else{
             //khi người dùng hk mún up ảnh mới -> cập nhật thông tin
-//            u.setAvatar(imgEditAvatar.get);
             myRef.child(u.getId()).setValue(u);
         }
 

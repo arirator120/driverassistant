@@ -8,7 +8,6 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -106,7 +105,6 @@ public class AddChangeOilActivity extends AppCompatActivity {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(this);
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
         //spinner
         inItMyVehicles();
@@ -194,7 +192,6 @@ public class AddChangeOilActivity extends AppCompatActivity {
                 if (snapshot.exists()) {
                     for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                         //kiểm tra khóa ngoại
-                        //Log.d("idSnapshot", dataSnapshot.child("idUser").getValue() + "" );
                         if(dataSnapshot.child("idUser").getValue().equals(idUser)){
                             vehicle v = dataSnapshot.getValue(vehicle.class);
                             lstVehicle.add(v);
@@ -202,7 +199,7 @@ public class AddChangeOilActivity extends AppCompatActivity {
 
                     }
                     adapter_vehicle.notifyDataSetChanged();
-                    getData(lstVehicle); //cẩn thận
+                    getData(lstVehicle);
                 }
 
 
@@ -215,7 +212,6 @@ public class AddChangeOilActivity extends AppCompatActivity {
         });
 
         //đổ dữ liệu lên spinner
-        //Log.d("Check", lstVehicle.size() + "");
         adapter_vehicle = new ArrayAdapter(AddChangeOilActivity.this, android.R.layout.simple_spinner_item, lstVehicle);
         adapter_vehicle.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spVehicles.setAdapter(adapter_vehicle);
@@ -239,7 +235,6 @@ public class AddChangeOilActivity extends AppCompatActivity {
         //bỏ qua cái "Chọn loại xe" -> đi từ 1
         for(int i = 1; i < lstVehicle.size(); i++){
             if(lstVehicle.get(i).getId().equals(o.getVehicle().getId())) { //search trong ds xem id nào = id tư bundle đưa vào
-//                Log.d("CheckEqual", lstVehicle.get(i).getName() + "");
                 spVehicles.setSelection(i);
                 break;
             }

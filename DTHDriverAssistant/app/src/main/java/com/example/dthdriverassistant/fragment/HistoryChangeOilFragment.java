@@ -77,7 +77,6 @@ public class HistoryChangeOilFragment extends Fragment {
     Button btnExport;
     private static final int PERMISSION_REQUEST_CODE = 200;
 
-
     public HistoryChangeOilFragment() {
         // Required empty public constructor
     }
@@ -100,7 +99,7 @@ public class HistoryChangeOilFragment extends Fragment {
         tvReverse = v.findViewById(R.id.tvReverse);
 
         if (checkPermission()) {
-//            Toast.makeText(getContext(), "Permission Granted", Toast.LENGTH_SHORT).show();
+            //Accepted
         } else {
             requestPermission();
         }
@@ -114,7 +113,6 @@ public class HistoryChangeOilFragment extends Fragment {
         GoogleSignInAccount acct = GoogleSignIn.getLastSignedInAccount(getContext());
         if (acct != null) {
             idUser = acct.getId();
-            //Log.d("id", idUser);
         }
 
         getData(); // nhân dữ liệu từ fb
@@ -190,10 +188,9 @@ public class HistoryChangeOilFragment extends Fragment {
             PdfPTable table = new PdfPTable(3);
 
             //cột đề ba
-            table.addCell("Ngày thay nhớt");
+            table.addCell("Ngày thay nhot");
             table.addCell("Xe thay");
-            table.addCell("Giá tiền");
-
+            table.addCell("Gia tien");
 
             if(flag == false){
                 for(int i = 0; i< lstChangeOil.size(); i++){
@@ -230,7 +227,6 @@ public class HistoryChangeOilFragment extends Fragment {
 
     }
 
-    //worked
     private void viewPdf(String file, String directory) {
 
         File pdfFile = new File(Environment.getExternalStorageDirectory() + "/" + directory + "/" + file);
@@ -302,7 +298,6 @@ public class HistoryChangeOilFragment extends Fragment {
             }
         });
     }
-
 
     @Override
     public void onDestroy() {

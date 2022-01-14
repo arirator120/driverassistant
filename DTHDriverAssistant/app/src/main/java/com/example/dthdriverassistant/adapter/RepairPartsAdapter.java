@@ -46,7 +46,6 @@ public class RepairPartsAdapter extends RecyclerView.Adapter<RepairPartsAdapter.
         return holder;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull RepairPartsAdapter.ViewHolder holder, int position) {
         part p = partList.get(position);
@@ -87,7 +86,6 @@ public class RepairPartsAdapter extends RecyclerView.Adapter<RepairPartsAdapter.
         });
     }
 
-
     private void onClickEdit(part p) {
         Intent i =new Intent(mContext, AddRepairPartsActivity.class);
         Bundle bundle = new Bundle();
@@ -118,7 +116,6 @@ public class RepairPartsAdapter extends RecyclerView.Adapter<RepairPartsAdapter.
                 .show();
     }
 
-
     @Override
     public int getItemCount() {
         if(partList!=null)
@@ -130,8 +127,6 @@ public class RepairPartsAdapter extends RecyclerView.Adapter<RepairPartsAdapter.
     public void release(){
         mContext=null;
     }
-
-
 
     public class ViewHolder extends RecyclerView.ViewHolder {
         CardView layout_item;

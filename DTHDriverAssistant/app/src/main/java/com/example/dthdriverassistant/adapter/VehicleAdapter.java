@@ -46,7 +46,6 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.ViewHold
         return holder;
     }
 
-
     @Override
     public void onBindViewHolder(@NonNull VehicleAdapter.ViewHolder holder, int position) {
         vehicle v = vehicleList.get(position);
@@ -59,12 +58,8 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.ViewHold
             holder.ivCar.setImageResource(R.drawable.ic_oto);
         }
 
-
         holder.tvNameCar.setText(v.getName());
         holder.tvSign.setText(v.getSign());
-
-
-
         holder.layout_item.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,13 +105,11 @@ public class VehicleAdapter extends RecyclerView.Adapter<VehicleAdapter.ViewHold
                 .show();
     }
 
-
     @Override
     public int getItemCount() {
         if(vehicleList!=null)
             return vehicleList.size(); //phải cái này để trả về số lượng item
         return 0;
-
     }
 
     public void release(){
